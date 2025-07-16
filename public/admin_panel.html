@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="brick.css" />
+</head>
+<body>
+  <nav class="menu">
+    <a href="/admin.html" class="active">Dashboard</a>
+    <a href="#" id="viewContactsBtn">Contacts</a>
+    <a href="#" id="viewQuotesBtn">Quotes</a>
+    <a href="/logout">Logout</a>
+  </nav>
+
+  <div class="admin-section" id="contactsSection" style="display: none;">
+    <h2>Contact Submissions</h2>
+    <table id="contactsTable">
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Message</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="admin-section" id="quotesSection" style="display: none;">
+    <h2>Quote Requests</h2>
+    <table id="quotesTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Project Type</th>
+          <th>Location</th>
+          <th>Description</th>
+          <th>Submitted</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script>
+    document.getElementById('viewContactsBtn').onclick = () => {
+      document.getElementById('contactsSection').style.display = 'block';
+      document.getElementById('quotesSection').style.display = 'none';
+
+      fetch('/admin/data')
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector('#contactsTable tbody');
+          tbody.innerHTML = '';
+          data.forEach(item => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${item.name}</td>
+                <td>${item.email}</td>
+                <td>${item.message}</td>
+              </tr>`;
+          });
+        });
+    };
+
+    document.getElementById('viewQuotesBtn').onclick = () => {
+      document.getElementById('quotesSection').style.display = 'block';
+      document.getElementById('contactsSection').style.display = 'none';
+
+      fetch('/admin/quotes')
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector('#quotesTable tbody');
+          tbody.innerHTML = '';
+          data.forEach(item => {
+            tbody.innerHTML += `
+              <tr>
+                <td>${item.name}</td>
+                <td>${item.email}</td>
+                <td>${item.phone}</td>
+                <td>${item.project_type}</td>
+                <td>${item.location}</td>
+                <td>${item.description}</td>
+                <td>${new Date(item.created_at).toLocaleString()}</td>
+              </tr>`;
+          });
+        });
+    };
+  </script>
+</body>
+</html>

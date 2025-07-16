@@ -1,0 +1,8 @@
+POST http://localhost:3000/contact
+Content-Type: application/json
+
+{
+  "name": "Delight Ndlovu",
+  "email": "delightking03@gmail.com",
+  "message": "next generation of web development"
+}

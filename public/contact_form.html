@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | [Your Company Name]</title>
+  <link rel ="stylesheet" href="brick.css" />
+</head>
+<body>
+<div id="container">
+      <div class="menu">
+       <a href="index.html">HOME</a>
+       <a href="home.html">ABOUT US</a>
+       <a href="services.html">SERVICES</a>
+       <a href="contact_form.html">CONTACT US</a>
+       <a href="quote.html">QUOTE</a>
+      </div>
+    </div>
+  <header class="contact-header">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Get in touch with us today!</p>
+  </header>
+  <main id="form-container">
+ <section id="contact-form">
+      <h2>Send Us a Message</h2>
+      <form id="contactForm">
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+       <!--<label for="phone">Phone Number:</label><br />
+        <input type="tel" id="phone" name="phone" /><br /><br />-->
+
+        <label for="message"> Message:</label><br />
+        <textarea id="message" name="message" rows="6" required></textarea><br /><br />
+
+        <button type="submit">Send</button>
+      </form>
+      <div id="response"></div>
+    </section>
+  </main>
+    <section id="contact-info">
+      <h2 color="white">Our Contact Information</h2>
+      <p><strong>Company Name:</strong> Brick And (Pty) Ltd</p>
+      <p><strong>Address:</strong> 18 Van Der Merwe, Johannesburg 2001, Gauteng, </p>
+      <p><strong>Phone:</strong> +27 61 831 2589</p>
+      <p><strong>Email:</strong> brickand25@gmail.com</p>
+      <p><strong>Working Hours:</strong> Mon - Fri, 7:00 AM - 6:00 PM</p>
+    </section>
+
+   
+
+  <footer id="footer">
+    <p>&copy; 2025 Brick And (Pty) Ltd . All rights reserved.</p>
+  </footer>
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const message = form.message.value;
+
+  const res = await fetch('http://localhost:3000/contact', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, email, message })
+  });
+
+  const result = await res.json();
+
+  const responseDiv = document.getElementById('response');
+  if (res.ok) {
+    responseDiv.textContent = result.message;
+    form.reset();
+  } else {
+    responseDiv.textContent = result.error || 'Something went wrong.';
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="construction, renovation, painting, tiling, kitchen, near me">
+  <title>Brick And (PTY) LTD</title>
+  <link rel="stylesheet" href="brick.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Titillium Web', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    #column {
+      background-color: #004d40;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .menu {
+      background-color: #00796b;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: #ffcc80;
+    }
+
+    #box {
+      background-color: #ffffff;
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 1000px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #box ol {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    #box ol li {
+      background-color: #e0f2f1;
+      padding: 15px;
+      border-left: 5px solid #004d40;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    #box ol li:hover {
+      background-color: #b2dfdb;
+      transform: scale(1.03);
+    }
+
+    #box img {
+      max-width: 48%;
+      height: auto;
+      margin: 10px 1%;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+
+    #box img:hover {
+      transform: scale(1.05);
+    }
+
+    #slider {
+      max-width: 1000px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 12s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      25% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      100% { transform: translateX(0%); }
+    }
+
+    #content {
+      text-align: center;
+      padding: 20px;
+      font-size: 1.1rem;
+    }
+
+    #footer {
+      background-color: #004d40;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      color: #ccc;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="column">
+    <h1>BRICK AND (PTY) LTD</h1>
+  </div>
+
+  <div id="container">
+    <div class="menu">
+      <a href="index.html">HOME</a>
+      <a href="home.html">ABOUT US</a>
+      <a href="services.html">SERVICES</a>
+      <a href="contact_form.html">CONTACT US</a>
+      <a href="quote.html">QUOTE</a>
+    </div>
+  </div>
+
+  <div id="box">
+    <ol>
+      <li>Quality Construction Materials</li>
+      <li>Residential and Commercial Renovations</li>
+      <li>Painting</li>
+      <li>Floor and Wall Tiling</li>
+      <li>Plumbing</li>
+      <li>Plastering</li>
+      <li>Bricklaying</li>
+      <li>Project Planning and Visualization</li>
+    </ol>
+    <img src="images/site.jpg" alt="Construction site">
+    <img src="images/smarthome.jpg" alt="Smart home system">
+    <!--<img src="images/renovation.jpg" alt="Renovation project">
+    <img src="images/painting.jpg" alt="Painting service">-->
+  </div>
+
+  <!-- Image Slider Below the Main Section -->
+  <div id="slider">
+    <div class="slides">
+      <img src="images/renovation.jpg" alt="Renovation project">
+      <img src="images/painting.jpg" alt="Painting service">
+      <img src="images/tiling.jpg" alt="Tiling work">
+      <img src="images/plumbing.jpg" alt="Plumbing installation">
+    </div>
+  </div>
+
+  <div id="content">
+    <p>We are a leading provider of construction materials and services.</p>
+    <p>Our mission is to deliver quality products and exceptional service to our clients.</p>
+  </div>
+
+  <div id="container">
+    <div id="footer">
+      <a href="testimonials.html">Testimonials</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 Brick And (Pty) Ltd. All rights reserved.</p>
+  </footer>
+</body>
+</html>
