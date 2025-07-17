@@ -260,6 +260,24 @@ body{
       grid-template-columns: 1fr;
     }
   }
+  .image {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.image img:hover {
+  transform: scale(1.05);
+}
 
 
 
