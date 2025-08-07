@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Request a Quote | Code Brick</title>
+  <link rel="stylesheet" href="brick.css" />
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
+</head>
+<body>
+  <nav><div id="container">
+      <div class="menu">
+       <a href="/index">HOME</a>
+       <a href="/HOME">ABOUT US</a>
+       <a href="/services">SERVICES</a>
+       <a href="/contact_form">CONTACT US</a>
+       <a href="/quote">QUOTE</a>
+      </div>
+  </nav>
+
+    <div class="form-card">
+      <h2>Request a Quote</h2>
+      <form id="quoteForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="project_type">Project Type</label>
+        <input type="text" id="project_type" name="project_type" required />
+
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" required />
+
+        <label for="description">Project Description</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+
+        <button type="submit">Submit Request</button>
+        <p id="responseMessage"></p>
+      </form>
+    </div>
+  </div>
+  <footer id ="footer">
+    <p>&copy; 2025 BRICK AND (PTY) LTD. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        project_type: this.project_type.value,
+        location: this.location.value,
+        description: this.description.value
+      };
+
+      const response = await fetch('/quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      document.getElementById('responseMessage').innerText = result.message;
+      if (result.success) this.reset();
+    });
+  </script>
+</body>
+</html>
