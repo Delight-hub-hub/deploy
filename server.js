@@ -148,6 +148,23 @@ app.get('/logout', (req, res) => {
   res.redirect('/admin-login.html');
 });
 
+// === Clean URLs: Serve all .html files without .html in URL ===
+app.get('/:page', (req, res, next) => {
+  // Avoid clashing with known routes like /admin, /logout, /contact, /quote
+  const forbiddenRoutes = ['admin', 'logout', 'contact', 'quote', 'favicon.ico', 'admin-login'];
+
+  if (forbiddenRoutes.includes(req.params.page)) return next();
+
+  const filePath = path.join(__dirname, 'public', `${req.params.page}.html`);
+
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.warn(`Page not found: ${req.params.page}`);
+      next(); // let your 404 handler take care of this
+    }
+  });
+});
+
 // =====================
 // Start Server
 // =====================
