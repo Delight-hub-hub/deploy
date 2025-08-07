@@ -215,5 +215,16 @@
   <footer id="footer">
     <p>&copy; 2025 Brick And (Pty) Ltd. All rights reserved.</p>
   </footer>
+  <script>
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(
+        (position)=> {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          console.log(`Latitude: ${lat}, Longitude: ${lon}`);
+        },
+      )
+    }
+  </script>
 </body>
 </html>
