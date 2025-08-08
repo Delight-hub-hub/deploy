@@ -12,14 +12,20 @@
   <link rel="icon" href="images/brick.jpg" type="image/x-icon">
 </head>
 <body>
-  <div id="container">
-    <div class="menu">
+  <div class="container">
+  <div class="navbar">
+    <div class="brand"></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="menu" id="menu">
       <a href="/index">HOME</a>
       <a href="/HOME">ABOUT US</a>
       <a href="/services">SERVICES</a>
       <a href="/contact_form">CONTACT US</a>
       <a href="/quotation">QUOTE</a>
     </div>
+  </div>
+</div>
+
   </div>
   <header class="hero">
     <div class="overlay">
@@ -52,6 +58,12 @@
   <footer id="footer">
     <p>&copy; 2025 Brick And (Pty) Ltd. All rights reserved.</p>
   </footer>
+  <script>
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('show');
+  }
+</script>
+
 
   <script>
     if(navigator.geolocation){
