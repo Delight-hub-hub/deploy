@@ -438,6 +438,7 @@ body {
     width: 200px;
     border-radius: 8px;
     padding: 10px;
+    z-index: 9999;
   }
 
   .menu.show {
