@@ -4,15 +4,179 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brick And (PTY) LTD</title>
-  <link rel="stylesheet" href="brick.css" />
   <link rel="icon" href="images/brick.jpg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #f4f6fa;
+      color: #222;
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #2d3436;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .brand {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      background: url('images/brick.jpg') no-repeat left center/40px;
+      padding-left: 50px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+    }
+    .menu {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .menu a:hover {
+      background: #636e72;
+      color: #ffe082;
+    }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+    @media (max-width: 800px) {
+      .menu {
+        display: none;
+        flex-direction: column;
+        background: #2d3436;
+        position: absolute;
+        top: 70px;
+        right: 2rem;
+        min-width: 180px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        z-index: 100;
+      }
+      .menu.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+    .hero {
+      background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('images/hero-construction.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 5rem 2rem 3rem 2rem;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 8px 32px rgba(44,62,80,0.15);
+      margin-bottom: 2rem;
+      animation: fadeIn 1.2s;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+    main.container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.08);
+      margin-top: -60px;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1.2s;
+    }
+    section {
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 1.2s;
+    }
+    h2 {
+      color: #2d3436;
+      margin-bottom: 0.7rem;
+      font-size: 2rem;
+      border-left: 5px solid #ffe082;
+      padding-left: 0.7rem;
+    }
+    .values {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .smart-feature {
+      flex: 1 1 180px;
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.05);
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .smart-feature:hover {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 8px 24px rgba(44,62,80,0.12);
+      background: #ffe08222;
+    }
+    ul {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    #smart-home {
+      background: linear-gradient(90deg, #ffe08222 0%, #b2bec3 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(44,62,80,0.06);
+    }
+    #smart-home h2 {
+      color: #636e72;
+    }
+    #smart-home p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
-
   <!-- Navigation -->
- <div class="container">
   <div class="navbar">
-    <div class="brand"></div>
+    <div class="brand">Brick And (PTY) LTD</div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="menu" id="menu">
       <a href="/index">HOME</a>
@@ -22,20 +186,22 @@
       <a href="/quotation">QUOTE</a>
     </div>
   </div>
-</div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Building Your Vision, Brick by Brick</h1>
+    <p>
+      Welcome to Brick And (PTY) LTD – your trusted partner in construction, innovation, and smart building solutions. We turn your dreams into reality with quality, integrity, and expertise.
+    </p>
+  </div>
 
   <main class="container">
-    <!-- Hero Section -->
-    <header id="column">
-      <h1>Brick And (PTY) LTD</h1>
-    </header>
-
     <!-- About Section -->
     <section>
       <h2>About Us</h2>
       <p>
         Brick And (PTY) LTD is a leading construction company committed to delivering top-quality building solutions across residential, commercial, and industrial sectors. 
-        With over [X] years of experience, we pride ourselves on our craftsmanship, integrity, and attention to detail.
+        With over <strong>15 years</strong> of experience, we pride ourselves on our craftsmanship, integrity, and attention to detail.
       </p>
     </section>
 
@@ -85,14 +251,27 @@
     <section id="smart-home">
       <h2>Smart Home & Smart Building Solutions</h2>
       <p>
+        We offer cutting-edge smart home and building automation solutions, integrating security, energy management, and convenience. Our team designs and installs systems that make your spaces safer, more efficient, and future-ready.
       </p>
-      <script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-  }
-</script>
+      <ul>
+        <li>Automated lighting, climate, and security controls</li>
+        <li>Energy-efficient building management</li>
+        <li>Remote monitoring and smart device integration</li>
+        <li>Custom solutions for homes and businesses</li>
+      </ul>
+    </section>
+  </main>
 
-</section>
-</main>
+  <script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('show');
+    }
+    // Optional: Close menu on link click (mobile)
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu').classList.remove('show');
+      });
+    });
+  </script>
 </body>
 </html>
