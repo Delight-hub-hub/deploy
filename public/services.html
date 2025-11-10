@@ -3,26 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Services | Brick And (PTY) LTD</title>
+  <title>Our Services | Brick And (PTY) LTD Construction & Projects</title>
   <link rel="icon" href="images/brick.jpg" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
+   /* General styles */
     body {
-      margin: 0;
-      font-family: 'Montserrat', Arial, sans-serif;
-      background: #f4f6fa;
-      color: #222;
+        position: relative; /* Essential for positioning the pseudo-element */
+        min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
+        margin: 0;
+        padding: 0;
     }
+
+    body::before {
+        content: ''; /* Required for pseudo-elements */
+        position: fixed;
+        top: 0;
+        width:100%;
+        height:100%;
+        left: 0;
+        background-image: url('images/story.png'); /* Replace with your image path */
+        background-size: cover; /* Adjust as needed: cover, contain, 100% 100%, etc. */
+        background-repeat: no-repeat;
+        opacity: 0.6; /* Sets the opacity of the background image */
+        z-index: -1; /* Places the pseudo-element behind the body's content */
+    }
+
+
+    /* Navbar */
     .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       background: #2d3436;
+      width: 100%;
       padding: 1rem 2rem;
       position: sticky;
       top: 0;
       z-index: 100;
     }
+
     .brand {
       font-size: 1.7rem;
       font-weight: 700;
@@ -30,26 +50,29 @@
       letter-spacing: 2px;
       background: url('images/brick.jpg') no-repeat left center/40px;
       padding-left: 50px;
-      min-height: 40px;
       display: flex;
       align-items: center;
     }
+
     .menu {
       display: flex;
       gap: 1.5rem;
     }
+
     .menu a {
       color: #fff;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
+      transition: all 0.2s ease-in-out;
       padding: 0.5rem 1rem;
       border-radius: 4px;
     }
+
     .menu a:hover {
       background: #636e72;
       color: #ffe082;
     }
+
     .menu-toggle {
       display: none;
       background: none;
@@ -58,6 +81,7 @@
       font-size: 2rem;
       cursor: pointer;
     }
+
     @media (max-width: 800px) {
       .menu {
         display: none;
@@ -66,7 +90,7 @@
         position: absolute;
         top: 70px;
         right: 2rem;
-        min-width: 180px;
+        min-width: 200px;
         box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         border-radius: 8px;
         z-index: 100;
@@ -78,16 +102,19 @@
         display: block;
       }
     }
+
+    /* Hero Section */
     .services-hero {
-      background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('images/hero-construction.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(44, 62, 80, 0.452), rgba(44,62,80,0.7)),
+                  url('images/hero-construction.jpg') center/cover no-repeat;
       color: #fff;
-      padding: 4rem 2rem 2rem 2rem;
+      padding: 4rem 2rem 2rem;
       text-align: center;
       border-radius: 0 0 40px 40px;
       box-shadow: 0 8px 32px rgba(44,62,80,0.15);
-      margin-bottom: 2rem;
       animation: fadeIn 1.2s;
     }
+
     .services-hero img {
       border-radius: 50%;
       margin: 1rem 0;
@@ -98,35 +125,40 @@
       object-fit: cover;
       background: #fff;
     }
+
     .services-hero h1 {
       font-size: 2.7rem;
       margin-bottom: 0.5rem;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
     }
+
     .services-hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
+      font-size: 1.15rem;
+      max-width: 650px;
       margin: 0 auto;
       opacity: 0.95;
     }
+
+    /* Services Container */
     main#services-container {
       max-width: 1100px;
-      margin: 0 auto;
+      margin: -60px auto 0;
       padding: 2rem;
-      background: #fff;
+      background: #ffffff5e;
       border-radius: 24px;
       box-shadow: 0 4px 24px rgba(44,62,80,0.08);
-      margin-top: -60px;
       position: relative;
       z-index: 2;
       animation: fadeInUp 1.2s;
     }
+
     #services-list {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+
     #services-list h2 {
       grid-column: 1/-1;
       color: #2d3436;
@@ -135,24 +167,26 @@
       border-left: 5px solid #ffe082;
       padding-left: 0.7rem;
     }
+
     .service-card {
       background: linear-gradient(120deg, #ffe08222 0%, #b2bec3 100%);
       border-radius: 16px;
-      padding: 1.5rem 1.2rem;
+      padding: 1.5rem;
       box-shadow: 0 2px 8px rgba(44,62,80,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
       position: relative;
       overflow: hidden;
-      animation: fadeInUp 1.2s;
     }
+
     .service-card:hover {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 8px 24px rgba(44,62,80,0.13);
       background: #ffe08244;
     }
+
     .service-card h3 {
-      color: #636e72;
+      color: #2d3436;
       margin-bottom: 0.6rem;
       font-size: 1.3rem;
       display: flex;
@@ -160,29 +194,34 @@
       justify-content: center;
       gap: 0.5rem;
     }
+
     .service-card img {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
-      margin-right: 0.3rem;
-      vertical-align: middle;
       border-radius: 8px;
       background: #fff;
       border: 2px solid #ffe082;
       box-shadow: 0 2px 8px rgba(44,62,80,0.08);
     }
+
     .service-card p {
       color: #444;
       font-size: 1.05rem;
-      margin: 0.5rem 0 0 0;
+      margin: 0.5rem 0 0;
     }
+
+    /* Footer */
     #footer {
       text-align: center;
-      padding: 1.5rem 0 0.7rem 0;
+      padding: 1.5rem 0;
       color: #888;
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin-top: 2rem;
+      background: #f9fafb;
     }
+
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -199,9 +238,9 @@
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="menu" id="menu">
       <a href="/index">HOME</a>
-      <a href="/HOME">ABOUT US</a>
-      <a href="/services">SERVICES</a>
-      <a href="/contact_form">CONTACT US</a>
+      <a href="/about">ABOUT US</a>
+      <a href="/services" class="active">SERVICES</a>
+      <a href="/contact_form">CONTACT</a>
       <a href="/quotation">QUOTE</a>
     </div>
   </div>
@@ -209,7 +248,7 @@
   <header class="services-hero">
     <h1>Our Services</h1>
     <img src="images/brick.jpg" alt="Brick And (PTY) LTD Logo"/>
-    <p>Delivering excellence across every phase of construction.</p>
+    <p>Delivering quality, innovation, and reliability across every phase of construction — from concept to completion.</p>
   </header>
 
   <main id="services-container">
@@ -217,70 +256,46 @@
       <h2>What We Offer</h2>
 
       <div class="service-card">
-        <h3>
-          <img src="images/residence.jpg" alt="Residential Construction Icon" />
-          Residential Construction
-        </h3>
-        <p>
-          From custom homes to housing developments, we bring your vision to life with precision and quality materials.
-        </p>
+        <h3><img src="images/residence.jpg" alt="Residential Construction Icon" />Residential Construction</h3>
+        <p>From contemporary homes to housing developments, we build with precision and care. Every structure reflects our commitment to quality, comfort, and architectural beauty.</p>
       </div>
 
       <div class="service-card">
-        <h3>
-          <img src="images/commercial.jpg" alt="Commercial Construction Icon" />
-          Commercial Construction
-        </h3>
-        <p>
-          We design and build commercial spaces that are functional, modern, and built to last — offices, retail centers, and more.
-        </p>
+        <h3><img src="images/commercial.jpg" alt="Commercial Construction Icon" />Commercial Construction</h3>
+        <p>We design and construct commercial properties that combine functionality and modern aesthetics — including offices, retail spaces, and mixed-use developments.</p>
       </div>
 
       <div class="service-card">
-        <h3>
-          <img src="images/reno.jpg" alt="Renovations Icon" />
-          Renovations & Remodeling
-        </h3>
-        <p>
-          Transform your existing space with expert renovation services. Kitchens, bathrooms, full-home makeovers — we've got you covered.
-        </p>
+        <h3><img src="images/reno.jpg" alt="Renovations Icon" />Renovations & Remodeling</h3>
+        <p>Upgrade, expand, or reinvent your property with our expert renovation services. From single-room makeovers to full-scale restorations, we transform spaces beautifully and efficiently.</p>
       </div>
 
       <div class="service-card">
-        <h3>
-          <img src="images/project-management.png" alt="Project Management Icon" />
-          Project Management
-        </h3>
-        <p>
-          Comprehensive project oversight to ensure timelines, budgets, and quality standards are met from start to finish.
-        </p>
+        <h3><img src="images/project-management.png" alt="Project Management Icon" />Project Management</h3>
+        <p>Our project management team ensures your vision is delivered on time and within budget. We oversee every phase — planning, coordination, and execution — with precision and transparency.</p>
       </div>
 
       <div class="service-card">
-        <h3>
-          <img src="images/contracting.png" alt="General Contracting Icon" />
-          General Contracting
-        </h3>
-        <p>
-          End-to-end general contracting services, coordinating all trades and services to deliver seamless project execution.
-        </p>
+        <h3><img src="images/contracting.png" alt="General Contracting Icon" />General Contracting</h3>
+        <p>From foundation to finishing touches, we coordinate all trades, materials, and services to ensure seamless project delivery that meets the highest standards.</p>
       </div>
 
       <div class="service-card">
-        <h3>
-          <img src="images/design-build.png" alt="Design & Build Icon" />
-          Design & Build
-        </h3>
-        <p>
-          Integrated design-build solutions that streamline your project from initial sketches to final construction.
-        </p>
+        <h3><img src="images/design-build.png" alt="Design & Build Icon" />Design & Build Solutions</h3>
+        <p>Our integrated design-build model simplifies construction — offering clients one point of contact for both design and construction, saving time, cost, and stress.</p>
+      </div>
+
+      <div class="service-card">
+        <h3><img src="images/smart-home.png" alt="Smart Home Icon" />Smart Home Integration</h3>
+        <p>Experience modern living with smart home systems — automated lighting, energy-efficient climate control, security monitoring, and solar solutions designed for the future.</p>
       </div>
     </section>
   </main>
 
   <footer id="footer">
-    <p>&copy; 2025 Brick And (Pty) Ltd. All rights reserved.</p>
+    <p>&copy; 2025 Brick And (Pty) Ltd Construction & Projects. All rights reserved.</p>
   </footer>
+
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('show');
