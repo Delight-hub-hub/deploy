@@ -7,8 +7,8 @@ const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
 const path = require('path');
-const db = require('./db'); // SQLite connection (make sure db.js exports the db)
-const transporter = require('./emailConfig'); // Email transporter setup (NodeMailer)
+const db = require('./db'); // SQLite connection
+const transporter = require('./emailConfig'); // Email transporter
 
 // ===== App Setup =====
 const app = express();
@@ -38,30 +38,34 @@ function requireLogin(req, res, next) {
   }
 }
 
-// ===== Database Table Setup =====
-db.run(`CREATE TABLE IF NOT EXISTS quotes (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT,
-  email TEXT,
-  phone TEXT,
-  project_type TEXT,
-  location TEXT,
-  site_status TEXT,
-  project_size TEXT,
-  urgency TEXT,
-  hire_status TEXT,
-  timeline TEXT,
-  description TEXT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)`);
+// ===== Database Table Setup (using better-sqlite3 exec) =====
+try {
+  db.exec(`CREATE TABLE IF NOT EXISTS quotes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    phone TEXT,
+    project_type TEXT,
+    location TEXT,
+    site_status TEXT,
+    project_size TEXT,
+    urgency TEXT,
+    hire_status TEXT,
+    timeline TEXT,
+    description TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
 
-db.run(`CREATE TABLE IF NOT EXISTS contacts (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT,
-  email TEXT,
-  message TEXT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-)`);
+  db.exec(`CREATE TABLE IF NOT EXISTS contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT,
+    message TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )`);
+} catch (err) {
+  console.error("Database table creation failed:", err.message);
+}
 
 // ===== Routes =====
 
@@ -72,15 +76,14 @@ app.post('/contact', (req, res) => {
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
-  db.run('INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
-    [name, email, message],
-    function(err) {
-      if (err) {
-        console.error(err.message);
-        return res.status(500).json({ error: 'Database error.' });
-      }
-      res.status(201).json({ message: 'Contact saved successfully.', id: this.lastID });
-    });
+  try {
+    const stmt = db.prepare('INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)');
+    const info = stmt.run(name, email, message);
+    res.status(201).json({ message: 'Contact saved successfully.', id: info.lastInsertRowid });
+  } catch (err) {
+    console.error('Database Error:', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
 
 // ---- Quote Form ----
@@ -106,36 +109,15 @@ app.post('/quote', (req, res) => {
     site_status, project_size, urgency, hire_status, timeline, description
   ];
 
-  db.run(sql, values, function(err) {
-    if (err) {
-      console.error('Database Error:', err.message);
-      return res.status(500).json({ success: false, message: 'Failed to submit quote request' });
-    }
+  try {
+    const stmt = db.prepare(sql);
+    stmt.run(values);
 
     // Send Email Notification
     const mailOptions = {
       from: 'brickand25@gmail.com',
       to: 'delightking03@gmail.com',
       subject: '🧱 New Quote Request Received - Code Brick',
-      text: `
-New Quote Request Received:
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Project Type: ${project_type}
-Location: ${location}
-Site Condition: ${site_status}
-Estimated Size: ${project_size}
-Urgency: ${urgency}
-Hiring Status: ${hire_status}
-Estimated Timeline: ${timeline}
-
-Project Description:
-${description}
-
-Submitted on: ${new Date().toLocaleString()}
-      `,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #f9f9f9; padding: 20px;">
           <div style="max-width: 600px; margin: auto; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;">
@@ -168,14 +150,19 @@ Submitted on: ${new Date().toLocaleString()}
       `
     };
 
-    transporter.sendMail(mailOptions, function(error, info) {
+    transporter.sendMail(mailOptions, (error, info) => {
       if (error) console.error('Email failed:', error);
       else console.log('Email sent: ' + info.response);
     });
 
     res.json({ success: true, message: 'Quote request submitted successfully!' });
-  });
+
+  } catch (err) {
+    console.error('Database Error:', err.message);
+    res.status(500).json({ success: false, message: 'Failed to submit quote request' });
+  }
 });
+
 
 // ---- Admin Panel (protected) ----
 app.get('/admin', requireLogin, (req, res) => {
@@ -183,17 +170,25 @@ app.get('/admin', requireLogin, (req, res) => {
 });
 
 app.get('/admin/data', requireLogin, (req, res) => {
-  db.all('SELECT * FROM contacts ORDER BY id DESC', [], (err, rows) => {
-    if (err) return res.status(500).json({ error: 'Database error.' });
+  try {
+    const stmt = db.prepare('SELECT * FROM contacts ORDER BY id DESC');
+    const rows = stmt.all();
     res.json(rows);
-  });
+  } catch (err) {
+    console.error('Database Error:', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
 
 app.get('/admin/quotes', requireLogin, (req, res) => {
-  db.all('SELECT * FROM quotes ORDER BY id DESC', [], (err, rows) => {
-    if (err) return res.status(500).json({ error: 'Database error.' });
+  try {
+    const stmt = db.prepare('SELECT * FROM quotes ORDER BY id DESC');
+    const rows = stmt.all();
     res.json(rows);
-  });
+  } catch (err) {
+    console.error('Database Error:', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
 
 // ---- Logout ----
