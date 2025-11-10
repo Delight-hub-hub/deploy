@@ -1,8 +1,24 @@
 /* General styles */
-body {
-    background-color: rgb(43, 100, 153);
-    margin: 0;
-}
+    body {
+        position: relative; /* Essential for positioning the pseudo-element */
+        min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
+        margin: 0;
+        padding: 0;
+    }
+
+    body::before {
+        content: ''; /* Required for pseudo-elements */
+        position: fixed;
+        top: 0;
+        width:100%;
+        height:100%;
+        left: 0;
+        background-image: url('images/story.png'); /* Replace with your image path */
+        background-size: cover; /* Adjust as needed: cover, contain, 100% 100%, etc. */
+        background-repeat: no-repeat;
+        opacity: 0.6; /* Sets the opacity of the background image */
+        z-index: -1; /* Places the pseudo-element behind the body's content */
+    }
 
 /* Header */
 #column {
@@ -39,6 +55,7 @@ body {
     padding: 10px 20px;
     background: rgba(255,255,255,0.1);
     border-radius: 5px;
+    
 }
 
 /* Box section */
@@ -99,7 +116,7 @@ body {
 /* Form Section */
 #form-container {
     width: 100%;
-    background-color: white;
+    background-color: rgba(77, 76, 76, 0.815);
     padding: 20px;
 }
 
@@ -112,7 +129,7 @@ body {
 /* Services */
 #services-container {
     width: 100%;
-    background-color: rgb(61, 65, 61);
+    background-color: rgb(9, 14, 9);
     padding: 30px 15px;
 }
 
@@ -344,9 +361,10 @@ body {
 
 .services {
   padding: 4rem 2rem;
-  background-color: #f9f9f9;
+  background-color: #3b3b3b98;
   text-align: center;
   width:100%;
+  box-sizing:border-box;
 }
 
 .services h2 {
@@ -378,6 +396,25 @@ body {
   width: 60px;
   margin-bottom: 1rem;
 }
+.intro-text {
+  background-color: #f4f4f498;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 0px;
+  animation: writeText 2s steps(40) 1s 1 normal both,
+             blinkCaret 500ms steps(40) infinite;
+}
+@keyframes writeText {
+  from { width: 50%; }
+  to { width: 100%; }
+}
+.call{
+  background-color: #333;
+  color: #b62828;
+  text-align: end;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
 
 .footer {
   background-color: #333;
@@ -406,9 +443,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #333;
+  background: #333333f5;
   padding: 10px 20px;
   color: white;
+  position :fixed;
+  top:0;
+  width:100%;
+  height:40px;
+  z-index: 1000;
 }
 
 .menu a {
@@ -452,6 +494,120 @@ body {
 
   .menu-toggle {
     display: block;
+  }
+}
+/* === Reset and Base === */
+
+
+
+
+/* === Layout Helpers === */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0;
+}
+
+/* === Header === */
+.main-header {
+  background-color: #047857;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.main-header h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.main-header p {
+  color: #c7f9cc;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* === Section Styling === */
+.service-section {
+  padding: 4rem 0;
+  background-color: #fff;
+}
+
+.service-section.gray-bg {
+  background-color: #f3f4f6;
+}
+
+.service-section h2 {
+  text-align: center;
+  color: #047857;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.service-section p {
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+.service-section h3 {
+  color: #065f46;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-section ul {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 1.2rem;
+  color: #444;
+}
+
+.service-section ul li {
+  margin-bottom: 0.6rem;
+}
+
+/* === Footer === */
+.main-footer {
+  background-color: #064e3b;
+  color: #d1fae5;
+  text-align: center;
+  padding: 2.5rem 1rem;
+}
+
+.main-footer a {
+  color: #6ee7b7;
+  text-decoration: none;
+}
+
+.main-footer a:hover {
+  text-decoration: underline;
+}
+
+.main-footer .tagline {
+  margin-top: 0.8rem;
+  color: #10b981;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .main-header h1 {
+    font-size: 2rem;
+  }
+  .service-section h2 {
+    font-size: 1.6rem;
+  }
+  .service-section p, .service-section ul {
+    font-size: 0.95rem;
   }
 }
 
