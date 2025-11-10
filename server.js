@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -16,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Session middleware
 app.use(session({
-  secret: 'your-secret-key',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }));
@@ -43,21 +44,20 @@ app.post('/contact', (req, res) => {
     return res.status(400).json({ error: 'All fields are required.' });
   }
 
-  const sql = 'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)';
-  const values = [name, email, message];
-
-  db.run(sql, values, function (err) {
-    if (err) {
-      console.error('Insert Error:', err.message);
-      return res.status(500).json({ error: 'Database error.' });
-    }
+  try {
+    const stmt = db.prepare('INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)');
+    const info = stmt.run(name, email, message);
     res.status(201).json({
       message: 'Contact saved successfully.',
-      id: this.lastID
+      id: info.lastInsertRowid
     });
-  });
+  } catch (err) {
+    console.error('Insert Error:', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
-db.run(`CREATE TABLE IF NOT EXISTS quotes (
+
+db.exec(`CREATE TABLE IF NOT EXISTS quotes (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   email TEXT,
@@ -67,23 +67,20 @@ db.run(`CREATE TABLE IF NOT EXISTS quotes (
   description TEXT,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )`);
+
 app.post('/quote', (req, res) => {
   const { name, email, phone, project_type, location, description } = req.body;
 
-  db.run(`INSERT INTO quotes (name, email, phone, project_type, location, description) VALUES (?, ?, ?, ?, ?, ?)`,
-    [name, email, phone, project_type, location, description],
-    function(err) {
-      if (err) {
-        console.error(err.message);
-        return res.status(500).json({ success: false, message: 'Failed to submit quote request' });
-      }
+  try {
+    const stmt = db.prepare('INSERT INTO quotes (name, email, phone, project_type, location, description) VALUES (?, ?, ?, ?, ?, ?)');
+    stmt.run(name, email, phone, project_type, location, description);
 
-      // === Send Email ===
-      const mailOptions = {
-        from: 'brickand25@gmail.com',
-        to: 'delightking03@gmail.com',
-        subject: 'New Quote Request Submitted',
-        text: `
+    // === Send Email ===
+    const mailOptions = {
+      from: 'brickand25@gmail.com',
+      to: 'delightking03@gmail.com',
+      subject: 'New Quote Request Submitted',
+      text: `
 New Quote Request Received:
 
 Name: ${name}
@@ -92,19 +89,22 @@ Phone: ${phone}
 Project Type: ${project_type}
 Location: ${location}
 Description: ${description}
-        `
-      };
+      `
+    };
 
-      transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-          console.error('Email failed:', error);
-        } else {
-          console.log('Email sent: ' + info.response);
-        }
-      });
-
-      res.json({ success: true, message: 'Quote request submitted successfully!' });
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.error('Email failed:', error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
     });
+
+    res.json({ success: true, message: 'Quote request submitted successfully!' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ success: false, message: 'Failed to submit quote request' });
+  }
 });
 
 
@@ -121,23 +121,25 @@ app.get('/admin', requireLogin, (req, res) => {
 // Admin API - Fetch Contact Submissions
 // =====================================
 app.get('/admin/data', requireLogin, (req, res) => {
-  db.all('SELECT name, email, message FROM contacts ORDER BY id DESC', [], (err, rows) => {
-    if (err) {
-      console.error('DB Error:', err.message);
-      return res.status(500).json({ error: 'Database error.' });
-    }
+  try {
+    const stmt = db.prepare('SELECT name, email, message FROM contacts ORDER BY id DESC');
+    const rows = stmt.all();
     res.json(rows);
-  });
+  } catch (err) {
+    console.error('DB Error:', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
 
 app.get('/admin/quotes', requireLogin, (req, res) => {
-  db.all('SELECT * FROM quotes ORDER BY id DESC', [], (err, rows) => {
-    if (err) {
-      console.error('DB Error (quotes):', err.message);
-      return res.status(500).json({ error: 'Database error.' });
-    }
+  try {
+    const stmt = db.prepare('SELECT * FROM quotes ORDER BY id DESC');
+    const rows = stmt.all();
     res.json(rows);
-  });
+  } catch (err) {
+    console.error('DB Error (quotes):', err.message);
+    res.status(500).json({ error: 'Database error.' });
+  }
 });
 
 // =====================

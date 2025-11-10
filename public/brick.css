@@ -2,6 +2,7 @@
 body {
     background-color: rgb(43, 100, 153);
     margin: 0;
+    padding-top: 70px;
 }
 
 /* Header */
@@ -409,6 +410,10 @@ body {
   background: #333;
   padding: 10px 20px;
   color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 .menu a {
