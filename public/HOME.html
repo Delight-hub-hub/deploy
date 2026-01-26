@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brick And (PTY) LTD</title>
   <link rel="icon" href="images/brick.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="brick.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
      body {
@@ -19,13 +20,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('images/story.png'); /* Replace with your image path */
+        background-image: url('images/back.jpg'); /* Replace with your image path */
         background-size: cover; /* Adjust as needed: cover, contain, 100% 100%, etc. */
         background-repeat: no-repeat;
         opacity: 0.6; /* Sets the opacity of the background image */
         z-index: -1; /* Places the pseudo-element behind the body's content */
     }
-    .navbar {
+   /* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,8 +38,8 @@
   width:100%;
   z-index: 1000;
   right:10;
-}
-    .brand {
+}*/
+   /* .brand {
       font-size: 1.7rem;
       font-weight: 700;
       color: #fff;
@@ -92,7 +93,7 @@
       .menu-toggle {
         display: block;
       }
-    }
+    }*/
     .hero {
       background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('images/hero-construction.jpg') center/cover no-repeat;
       color: #fff;
@@ -114,16 +115,17 @@
       margin: 0 auto;
       opacity: 0.95;
     }
-    main.container {
+    main.contain {
       max-width: 1100px;
       margin: 0 auto;
       padding: 2rem;
-      background: #fff;
+      background: #c5bfbf;
       border-radius: 24px;
       box-shadow: 0 4px 24px rgba(44,62,80,0.08);
       margin-top: -60px;
       position: relative;
       z-index: 2;
+  
       animation: fadeInUp 1.2s;
     }
     section {
@@ -190,8 +192,11 @@
 </head>
 <body>
   <!-- Navigation -->
+  <div class="container">
   <div class="navbar">
-    <div class="brand">Brick And (PTY) LTD</div>
+    <div >
+      <h1 style="font-size: large;">BRICK RENOVATIONS (PTY) LTD</h1>
+    </div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="menu" id="menu">
       <a href="/index">HOME</a>
@@ -199,23 +204,25 @@
       <a href="/services">SERVICES</a>
       <a href="/contact_form">CONTACT US</a>
       <a href="/quotation">QUOTE</a>
+     <!-- <a href="/smarthome">SMART HOME</a>-->
     </div>
   </div>
+</div>
 
   <!-- Hero Section -->
   <div class="hero">
     <h1>Building Your Vision, Brick by Brick</h1>
     <p>
-      Welcome to Brick And (PTY) LTD – your trusted partner in construction, innovation, and smart building solutions. We turn your dreams into reality with quality, integrity, and expertise.
+      Welcome to Brick Renovations – your trusted partner in renovations, innovation, and smart building solutions. We turn your dreams into reality with quality, integrity, and expertise.
     </p>
   </div>
 
-  <main class="container">
+  <main class="contain">
     <!-- About Section -->
     <section>
       <h2>About Us</h2>
       <p>
-        Brick And (PTY) LTD is a leading construction company committed to delivering top-quality building solutions across residential, commercial, and industrial sectors. 
+        Brick Renovations is a leading renovations company committed to delivering top-quality building solutions across residential, commercial, and industrial sectors. 
         With  <strong> years</strong> of experience, we pride ourselves on our craftsmanship, integrity, and attention to detail.
       </p>
     </section>
@@ -224,7 +231,7 @@
     <section>
       <h2>Our Mission</h2>
       <p>
-        To construct safe, sustainable, and innovative spaces that stand the test of time. We aim to exceed client expectations through efficient project management and superior construction standards.
+        To transform your space into a  safe, sustainable, and innovative space that stands the test of time. We aim to exceed client expectations through efficient project management and superior construction standards.
       </p>
     </section>
 

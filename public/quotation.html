@@ -3,31 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Request a Quote | Code Brick</title>
+  <title>Request a Quote </title>
   <link rel="stylesheet" href="brick.css" />
   <link rel="icon" href="images/brick.jpg" type="image/x-icon">
+  <style>
+     body{
+      margin:0;
+      background-color: rgb(157, 160, 185);
+     }
+
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="navbar">
-      <div class="brand"></div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-      <div class="menu" id="menu">
-        <a href="/index">HOME</a>
-        <a href="/HOME">ABOUT US</a>
-        <a href="/services">SERVICES</a>
-        <a href="/contact_form">CONTACT US</a>
-        <a href="/quotation">QUOTE</a>
-      </div>
+ <div class="container">
+  <div class="navbar">
+    <div >
+      <h1 style="font-size: large;">BRICK RENOVATIONS (PTY) LTD</h1>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="menu" id="menu">
+      <a href="/index">HOME</a>
+      <a href="/HOME">ABOUT US</a>
+      <a href="/services">SERVICES</a>
+      <a href="/contact_form">CONTACT US</a>
+      <a href="/quotation">QUOTE</a>
+      <a href="/smarthome">SMART HOME</a>
     </div>
   </div>
-
+</div>
   <div class="form-card">
     <h2>Request a Quote</h2>
-    <p class="intro-text">
-      Please fill out the form below with as much detail as possible. This will help us
-      provide you with an accurate and timely quotation.
-    </p>
+   
 
     <form id="quoteForm">
   <label for="name">Name</label>
@@ -86,7 +92,7 @@
 
   <footer class="main-footer">
     <div class="container">
-      <p>&copy; 2025 Brick And (PTY) LTD Construction and Projects. All Rights Reserved.</p>
+      <p>&copy; 2026 Brick Renovations. All Rights Reserved.</p>
       <p>
         Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> |
         Phone: <a href="tel:+27618312589">+27 61 831 2589</a>
@@ -116,7 +122,7 @@
         description: this.description.value
       };
 
-      const response = await fetch('/quote', {
+      const response = await fetch('/quotation', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

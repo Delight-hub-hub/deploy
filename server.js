@@ -84,7 +84,7 @@ app.post('/contact', (req, res) => {
 });
 
 // ---- Quote Form ----
-app.post('/quote', (req, res) => {
+app.post('/quotation', (req, res) => {
   const {
     name, email, phone, project_type, location,
     site_status, project_size, urgency, hire_status, timeline, description

@@ -3,308 +3,461 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Services | Brick And (PTY) LTD Construction & Projects</title>
-  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <title>Our Services | Brick Renovations (Pty) Ltd</title>
+
+  <link rel="icon" href="images/brick.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-   /* General styles */
+    :root {
+      --primary: #2c3e50;
+      --accent: #ffe082;
+      --dark: #2d3436;
+      --light-bg: rgba(255,255,255,0.75);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
     body {
-        position: relative; /* Essential for positioning the pseudo-element */
-        min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
-        margin: 0;
-        padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      background: url('images/back.jpg') center/cover fixed no-repeat;
     }
 
     body::before {
-        content: ''; /* Required for pseudo-elements */
-        position: fixed;
-        top: 0;
-        width:100%;
-        height:100%;
-        left: 0;
-        background-image: url('images/story.png'); /* Replace with your image path */
-        background-size: cover; /* Adjust as needed: cover, contain, 100% 100%, etc. */
-        background-repeat: no-repeat;
-        opacity: 0.6; /* Sets the opacity of the background image */
-        z-index: -1; /* Places the pseudo-element behind the body's content */
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.4);
+      z-index: -1;
     }
 
-
-    /* Navbar */
+    /* ================= NAVBAR ================= */
     .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #2d3436;
-      width: 100%;
+      background: var(--dark);
       padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    .brand {
-      font-size: 1.7rem;
-      font-weight: 700;
+    .navbar h1 {
       color: #fff;
-      letter-spacing: 2px;
-      background: url('images/brick.jpg') no-repeat left center/40px;
-      padding-left: 50px;
-      display: flex;
-      align-items: center;
+      font-size: 1.2rem;
+      margin: 0;
     }
 
     .menu {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .menu a {
       color: #fff;
       text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease-in-out;
-      padding: 0.5rem 1rem;
+      padding: .5rem 1rem;
       border-radius: 4px;
     }
 
     .menu a:hover {
       background: #636e72;
-      color: #ffe082;
+      color: var(--accent);
     }
 
     .menu-toggle {
       display: none;
+      font-size: 2rem;
       background: none;
       border: none;
       color: #fff;
-      font-size: 2rem;
       cursor: pointer;
     }
 
     @media (max-width: 800px) {
       .menu {
         display: none;
-        flex-direction: column;
-        background: #2d3436;
         position: absolute;
         top: 70px;
         right: 2rem;
+        background: var(--dark);
+        flex-direction: column;
         min-width: 200px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
         border-radius: 8px;
-        z-index: 100;
       }
-      .menu.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
+
+      .menu.show { display: flex; }
+      .menu-toggle { display: block; }
     }
 
-    /* Hero Section */
+    /* ================= HERO ================= */
     .services-hero {
-      background: linear-gradient(rgba(44, 62, 80, 0.452), rgba(44,62,80,0.7)),
-                  url('images/hero-construction.jpg') center/cover no-repeat;
+      background: linear-gradient(rgba(44,62,80,.9), rgba(44,62,80,.9));
       color: #fff;
-      padding: 4rem 2rem 2rem;
       text-align: center;
+      padding: 4rem 2rem 3rem;
       border-radius: 0 0 40px 40px;
-      box-shadow: 0 8px 32px rgba(44,62,80,0.15);
-      animation: fadeIn 1.2s;
     }
 
     .services-hero img {
-      border-radius: 50%;
-      margin: 1rem 0;
-      border: 6px solid #ffe082;
-      box-shadow: 0 4px 24px rgba(44,62,80,0.12);
       width: 140px;
       height: 140px;
+      border-radius: 50%;
+      border: 6px solid var(--accent);
       object-fit: cover;
-      background: #fff;
-    }
-
-    .services-hero h1 {
-      font-size: 2.7rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 1.5px;
+      margin: 1rem 0;
     }
 
     .services-hero p {
-      font-size: 1.15rem;
-      max-width: 650px;
-      margin: 0 auto;
-      opacity: 0.95;
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
     }
 
-    /* Services Container */
-    main#services-container {
-      max-width: 1100px;
-      margin: -60px auto 0;
-      padding: 2rem;
-      background: #ffffff5e;
+    /* ================= MAIN ================= */
+    main {
+      max-width: 1200px;
+      margin: -50px auto 3rem;
+      background: var(--light-bg);
+      padding: 2.5rem;
       border-radius: 24px;
-      box-shadow: 0 4px 24px rgba(44,62,80,0.08);
-      position: relative;
-      z-index: 2;
-      animation: fadeInUp 1.2s;
     }
 
-    #services-list {
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      border-left: 6px solid var(--accent);
+      padding-left: 1rem;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    #services-list h2 {
-      grid-column: 1/-1;
-      color: #2d3436;
-      margin-bottom: 0.7rem;
-      font-size: 2rem;
-      border-left: 5px solid #ffe082;
-      padding-left: 0.7rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
     }
 
     .service-card {
-      background: linear-gradient(120deg, #ffe08222 0%, #b2bec3 100%);
+      background: #fff;
       border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.06);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      position: relative;
       overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,.12);
+      transition: transform .3s ease, box-shadow .3s ease;
     }
 
     .service-card:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 8px 24px rgba(44,62,80,0.13);
-      background: #ffe08244;
-    }
-
-    .service-card h3 {
-      color: #2d3436;
-      margin-bottom: 0.6rem;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.18);
     }
 
     .service-card img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      border-radius: 8px;
-      background: #fff;
-      border: 2px solid #ffe082;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.08);
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      transition: transform .4s ease;
+      cursor: pointer;
     }
 
-    .service-card p {
-      color: #444;
-      font-size: 1.05rem;
-      margin: 0.5rem 0 0;
+    .service-card:hover img {
+      transform: scale(1.05);
     }
 
-    /* Footer */
-    #footer {
-      text-align: center;
-      padding: 1.5rem 0;
-      color: #888;
-      font-size: 0.95rem;
-      margin-top: 2rem;
-      background: #f9fafb;
+    /* ================= LIGHTBOX MODAL ================= */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s ease;
     }
 
-    /* Animations */
+    .lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1001;
+      transition: color 0.3s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-close:focus {
+      color: var(--accent);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #f1f1f1;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 10px 20px;
+      user-select: none;
+      transition: color 0.3s ease;
+      z-index: 1001;
+    }
+
+    .lightbox-nav:hover {
+      color: var(--accent);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #f1f1f1;
+      text-align: center;
+      font-size: 1.1rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 4px;
+      z-index: 1001;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-nav {
+        font-size: 24px;
+        padding: 8px 15px;
+      }
+
+      .lightbox-close {
+        font-size: 32px;
+        right: 20px;
+        top: 15px;
+      }
+
+      .lightbox-caption {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+        bottom: 15px;
+      }
+    }
+
+
+    /* ================= FOOTER ================= */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f5f5f5;
+      color: #666;
+      font-size: .9rem;
     }
   </style>
 </head>
+
 <body>
-  <div class="navbar">
-    <div class="brand">Brick And (PTY) LTD</div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="menu" id="menu">
-      <a href="/index">HOME</a>
-      <a href="/about">ABOUT US</a>
-      <a href="/services" class="active">SERVICES</a>
-      <a href="/contact_form">CONTACT</a>
-      <a href="/quotation">QUOTE</a>
-    </div>
+
+<nav class="navbar">
+  <h1>BRICK RENOVATIONS (PTY) LTD</h1>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <div class="menu" id="menu">
+    <a href="/index">Home</a>
+    <a href="/HOME">About</a>
+    <a href="/services">Services</a>
+    <a href="/contact_form">Contact</a>
+    <a href="/quotation">Quote</a>
   </div>
+</nav>
 
-  <header class="services-hero">
-    <h1>Our Services</h1>
-    <img src="images/brick.jpg" alt="Brick And (PTY) LTD Logo"/>
-    <p>Delivering quality, innovation, and reliability across every phase of construction — from concept to completion.</p>
-  </header>
+<header class="services-hero">
+  <h1>Our Services</h1>
+  <img src="images/logo.jpg" alt="Brick Renovations Logo">
+  <p>Delivering quality, innovation, and reliability across every phase of construction.</p>
+</header>
 
-  <main id="services-container">
-    <section id="services-list">
-      <h2>What We Offer</h2>
+<main>
 
-      <div class="service-card">
-        <h3><img src="images/residence.jpg" alt="Residential Construction Icon" />Residential Construction</h3>
-        <p>From contemporary homes to housing developments, we build with precision and care. Every structure reflects our commitment to quality, comfort, and architectural beauty.</p>
-      </div>
+  <section>
+    <h2>Kitchen Renovations & Remodeling</h2>
+    <div class="services-grid">
+      <div class="service-card"><img src="images/kitchen1.jpg" loading="eager" alt="Modern kitchen renovation"></div>
+      <div class="service-card"><img src="images/kitchen2.jpg" loading="lazy" alt="Luxury kitchen design"></div>
+      <div class="service-card"><img src="images/smarthome.jpg" loading="lazy" alt="Smart kitchen installation"></div>
+      <div class="service-card"><img src="images/kitchenq0.jpg" loading="lazy" alt="Kitchen cabinets"></div>
+    </div>
+  </section>
 
-      <div class="service-card">
-        <h3><img src="images/commercial.jpg" alt="Commercial Construction Icon" />Commercial Construction</h3>
-        <p>We design and construct commercial properties that combine functionality and modern aesthetics — including offices, retail spaces, and mixed-use developments.</p>
-      </div>
+  <section>
+    <h2>Bathroom Renovations</h2>
+    <div class="services-grid">
+      <div class="service-card"><img src="images/bath1.jpg" loading="lazy" alt="Bathroom renovation"></div>
+      <div class="service-card"><img src="images/bath2.jpg" loading="lazy" alt="Modern bathroom tiles"></div>
+      <div class="service-card"><img src="images/bath3.jpg" loading="lazy" alt="Luxury bathroom design"></div>
+      <div class="service-card"><img src="images/bath4.jpg" loading="lazy" alt="Shower installation"></div>
+      <div class="service-card"><img src="images/tile8.jpg" loading="lazy" alt="Bathroom tiling"></div>
+    </div>
+  </section>
 
-      <div class="service-card">
-        <h3><img src="images/reno.jpg" alt="Renovations Icon" />Renovations & Remodeling</h3>
-        <p>Upgrade, expand, or reinvent your property with our expert renovation services. From single-room makeovers to full-scale restorations, we transform spaces beautifully and efficiently.</p>
-      </div>
+  <section>
+    <h2>Exterior Renovations</h2>
+    <div class="services-grid">
+      <div class="service-card"><img src="images/tile1.jpg" loading="lazy" alt="Outdoor tiling"></div>
+      <div class="service-card"><img src="images/reno.jpg" loading="lazy" alt="Exterior renovation"></div>
+      <div class="service-card"><img src="images/paint1.jpg" loading="lazy" alt="Exterior painting"></div>
+      <div class="service-card"><img src="images/tile14.jpg" loading="lazy" alt="Patio tiles"></div>
+    </div>
+  </section>
 
-      <div class="service-card">
-        <h3><img src="images/project-management.png" alt="Project Management Icon" />Project Management</h3>
-        <p>Our project management team ensures your vision is delivered on time and within budget. We oversee every phase — planning, coordination, and execution — with precision and transparency.</p>
-      </div>
+  <section>
+    <h2>Outside Paving</h2>
+    <div class="services-grid">
+      <div class="service-card"><img src="images/driveway.jpeg" loading="lazy" alt="Driveway paving"></div>
+      <div class="service-card"><img src="images/fronthouse1.jpeg" loading="lazy" alt="Front yard paving"></div>
+      <div class="service-card"><img src="images/fronthouse4.jpeg" loading="lazy" alt="Residential paving"></div>
+    </div>
+  </section>
 
-      <div class="service-card">
-        <h3><img src="images/contracting.png" alt="General Contracting Icon" />General Contracting</h3>
-        <p>From foundation to finishing touches, we coordinate all trades, materials, and services to ensure seamless project delivery that meets the highest standards.</p>
-      </div>
+</main>
 
-      <div class="service-card">
-        <h3><img src="images/design-build.png" alt="Design & Build Icon" />Design & Build Solutions</h3>
-        <p>Our integrated design-build model simplifies construction — offering clients one point of contact for both design and construction, saving time, cost, and stress.</p>
-      </div>
+<footer>
+  © Brick Renovations (Pty) Ltd — Quality Construction & Renovations
+</footer>
 
-      <div class="service-card">
-        <h3><img src="images/smart-home.png" alt="Smart Home Icon" />Smart Home Integration</h3>
-        <p>Experience modern living with smart home systems — automated lighting, energy-efficient climate control, security monitoring, and solar solutions designed for the future.</p>
-      </div>
-    </section>
-  </main>
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+  <div class="lightbox-content">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <span class="lightbox-nav lightbox-prev" onclick="prevImage()">&#10094;</span>
+    <img id="lightbox-img" src="" alt="Full size image">
+    <span class="lightbox-nav lightbox-next" onclick="nextImage()">&#10095;</span>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
 
-  <footer id="footer">
-    <p>&copy; 2025 Brick And (Pty) Ltd Construction & Projects. All rights reserved.</p>
-  </footer>
+<script>
+  let currentImageIndex = 0;
+  let allImages = [];
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
-    }
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('menu').classList.remove('show');
+  function initLightbox() {
+    allImages = Array.from(document.querySelectorAll('.service-card img'));
+    allImages.forEach((img, index) => {
+      img.addEventListener('click', function() {
+        currentImageIndex = index;
+        openLightbox(img.src, img.alt);
       });
     });
-  </script>
+  }
+
+  function openLightbox(src, alt) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImg.src = src;
+    lightboxCaption.textContent = alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % allImages.length;
+    const img = allImages[currentImageIndex];
+    openLightbox(img.src, img.alt);
+  }
+
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+    const img = allImages[currentImageIndex];
+    openLightbox(img.src, img.alt);
+  }
+
+  // Close lightbox on Escape key
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Next/Prev with arrow keys
+  document.addEventListener('keydown', function(event) {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox.classList.contains('active')) return;
+    
+    if (event.key === 'ArrowRight') {
+      nextImage();
+    } else if (event.key === 'ArrowLeft') {
+      prevImage();
+    }
+  });
+
+  // Initialize lightbox when page loads
+  document.addEventListener('DOMContentLoaded', initLightbox);
+
+  function toggleMenu() {
+    document.getElementById('menu').classList.toggle('show');
+  }
+</script>
+
 </body>
 </html>

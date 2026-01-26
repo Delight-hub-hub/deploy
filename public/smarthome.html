@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Home & Office Solutions — Build Smarter Living</title>
+  <meta name="description" content="Smart home and smart office renovations, automation, security, energy optimization and full build services. Eye-catching, modern solutions tailored for you." />
+
+  <!-- Tailwind Play CDN for quick prototyping -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root{
+      --accent: #06b6d4; /* cyan-500 */
+      --accent-2: #8b5cf6; /* violet-500 */
+      --glass: rgba(255,255,255,0.06);
+    }
+
+    /* smooth gradient background */
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(11, 78, 129, 0.12), transparent),
+                  radial-gradient(900px 500px at 90% 90%, rgba(139,92,246,0.08), transparent),
+                  linear-gradient(180deg, #0f172a 0%, #071133 100%);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    /* Subtle floating animation for hero shapes */
+    @keyframes floaty { 0% { transform: translateY(0px) } 50% { transform: translateY(-10px) } 100% { transform: translateY(0px) } }
+    .floaty { animation: floaty 6s ease-in-out infinite; }
+
+    /* reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(18px) scale(0.99); transition: all 700ms cubic-bezier(.2,.9,.3,1); }
+    .reveal.visible{ opacity:1; transform: none; }
+
+    /* glass card */
+    .glass{ background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); border: 1px solid rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
+
+    /* CTA pulse */
+    .pulse {
+      position: relative;
+    }
+    .pulse::after{
+      content:''; position:absolute; left:-6px; top:-6px; right:-6px; bottom:-6px; border-radius:12px; opacity:0; box-shadow:0 12px 30px rgba(6,182,212,0.12); transform:scale(.95); transition: all .5s ease; }
+    .pulse:hover::after{ opacity:1; transform:scale(1); }
+
+    /* gallery hover */
+    .gallery-item{ transition: transform .45s cubic-bezier(.2,.9,.3,1), box-shadow .45s; }
+    .gallery-item:hover{ transform: translateY(-8px) scale(1.02); box-shadow: 0 24px 60px rgba(2,6,23,0.6); }
+
+    /* simple carousel */
+    .carousel-dot{ width:9px; height:9px; border-radius:99px; background:rgba(255,255,255,0.12); margin:0 6px; }
+    .carousel-dot.active{ background:var(--accent); box-shadow:0 6px 18px rgba(6,182,212,0.12); }
+
+    /* small utilities */
+    .soft-shadow{ box-shadow: 0 8px 30px rgba(2,6,23,0.6); }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- NAV -->
+  <header class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="rounded-lg p-2 bg-gradient-to-r from-cyan-500 to-violet-500 shadow-md">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="4" fill="white"/><path d="M7 12h10M12 7v10" stroke="#0b1221" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div>
+        <h1 class="text-white font-semibold">BRICK AND (PTY) LTD</h1>
+        <p class="text-xs text-slate-300 -mt-1">Smart homes • Smart offices • Renovations</p>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+      <a href="#services" class="hover:text-white">Services</a>
+      <a href="#projects" class="hover:text-white">Projects</a>
+      <a href="#how" class="hover:text-white">How we work</a>
+      <a href="#contact" class="text-white font-medium bg-gradient-to-r from-cyan-600 to-violet-600 px-4 py-2 rounded-lg shadow hover:opacity-95">Contact</a>
+    </nav>
+
+    <button class="md:hidden p-2 rounded-md glass">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-6 py-12 lg:py-20 flex flex-col lg:flex-row items-center gap-12">
+    <div class="lg:w-6/12 reveal" style="--delay:0s">
+      <h2 class="text-4xl lg:text-5xl font-extrabold leading-tight text-white">Build a home that thinks for you — <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent;">smart, secure, beautiful.</span></h2>
+      <p class="mt-4 text-slate-300 text-lg">We design and renovate smart homes and offices with automation, security, energy optimization and elegant finishes. From full builds to retrofit upgrades — we make your property future-proof.</p>
+
+      <div class="mt-8 flex gap-4 items-center">
+        <a href="#contact" class="pulse inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-violet-500 text-slate-900 font-semibold px-5 py-3 rounded-xl shadow-lg">Get a free quote</a>
+        <a href="#projects" class="inline-flex items-center gap-2 border border-slate-600 rounded-xl px-4 py-3 text-sm text-slate-300 glass">See portfolio</a>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-3">
+        <div class="glass p-4 rounded-xl flex items-center gap-3 soft-shadow">
+          <div class="p-3 rounded-md bg-white/6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Smart Security</div>
+            <div class="text-slate-300 text-sm">Alarm, cameras, access control</div>
+          </div>
+        </div>
+
+        <div class="glass p-4 rounded-xl flex items-center gap-3 soft-shadow">
+          <div class="p-3 rounded-md bg-white/6">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Energy & HVAC</div>
+            <div class="text-slate-300 text-sm">Solar-ready, intelligent climate</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Visual mockup column -->
+    <div class="lg:w-6/12 relative">
+      <div class="absolute -left-10 -top-8 w-36 h-36 rounded-2xl bg-gradient-to-tr from-cyan-500 to-violet-500 opacity-20 blur-3xl floaty"></div>
+      <div class="absolute -right-8 bottom-6 w-44 h-44 rounded-2xl bg-gradient-to-tr from-purple-600 to-cyan-400 opacity-16 blur-3xl floaty" style="animation-delay:.8s"></div>
+
+      <div class="glass rounded-2xl p-6 soft-shadow">
+        <!-- Mockup: dashboard + device cards -->
+        <div class="flex gap-4 items-start">
+          <div class="w-3/5">
+            <div class="bg-gradient-to-br from-slate-900 to-slate-800 p-4 rounded-xl">
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-slate-300 text-sm">Home Status</div>
+                  <div class="text-white font-semibold text-lg">All systems nominal</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-slate-300 text-sm">Energy</div>
+                  <div class="text-white font-semibold">3.2 kW</div>
+                </div>
+              </div>
+
+              <div class="mt-4 grid grid-cols-3 gap-3">
+                <div class="p-3 rounded-lg bg-white/3 text-center">
+                  <div class="text-2xl font-bold">72°</div>
+                  <div class="text-xs text-slate-300">Living Room</div>
+                </div>
+                <div class="p-3 rounded-lg bg-white/3 text-center">
+                  <div class="text-2xl font-bold">19°</div>
+                  <div class="text-xs text-slate-300">Fridge</div>
+                </div>
+                <div class="p-3 rounded-lg bg-white/3 text-center">
+                  <div class="text-2xl font-bold">4</div>
+                  <div class="text-xs text-slate-300">Devices</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="w-2/5 flex flex-col gap-3">
+            <div class="p-3 rounded-lg bg-gradient-to-br from-cyan-700 to-violet-700 text-white text-sm">Smart Lock<br><span class="font-semibold">Locked</span></div>
+            <div class="p-3 rounded-lg bg-gradient-to-br from-slate-900 to-slate-700 text-sm text-slate-300">Camera<br><span class="font-semibold text-white">No motion</span></div>
+            <div class="p-3 rounded-lg bg-gradient-to-br from-green-600 to-green-500 text-sm text-white">Solar<br><span class="font-semibold">Generating</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 reveal">
+        <h3 class="text-2xl font-bold text-white">What we do</h3>
+        <p class="text-slate-300 mt-2">From planning and electrical design to intelligent automation and elegant finishes — we offer full-service smart home and office solutions. Pick a service below to learn more.</p>
+
+        <div class="mt-6 grid sm:grid-cols-2 gap-6">
+          <article class="glass p-6 rounded-xl reveal">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold">Full Smart Renovations</h4>
+                <p class="text-slate-300 text-sm mt-1">We retrofit and renew. Concealed wiring, integrated environments, and finishes that fit your lifestyle.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass p-6 rounded-xl reveal">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 12h18" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold">Automation & Integration</h4>
+                <p class="text-slate-300 text-sm mt-1">Lights, HVAC, blinds, audio and scenes — all orchestrated with secure automation platforms.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass p-6 rounded-xl reveal">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3v18" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold">Security & Monitoring</h4>
+                <p class="text-slate-300 text-sm mt-1">CCTV, alarms, access control and 24/7 monitoring with privacy-first design.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="glass p-6 rounded-xl reveal">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-white/6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v20" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <h4 class="text-white font-semibold">Energy & Efficiency</h4>
+                <p class="text-slate-300 text-sm mt-1">Solar readiness, battery integrations and consumption analytics to reduce bills.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="glass p-6 rounded-xl reveal">
+        <h4 class="text-white font-semibold">Quick project estimator</h4>
+        <p class="text-slate-300 mt-2 text-sm">Tell us the size and type — we’ll give an approximate ballpark to start conversations.</p>
+
+        <form class="mt-4 grid gap-3">
+          <input class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm" placeholder="Project type: Home / Office / Retrofit" />
+          <input class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm" placeholder="Approx. area (sqm)" />
+          <select class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm"><option>Basic</option><option>Standard</option><option>Premium</option></select>
+          <button class="mt-2 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-lg px-4 py-2 font-semibold text-slate-900">Estimate</button>
+        </form>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PROJECT GALLERY -->
+  <section id="projects" class="max-w-7xl mx-auto px-6 py-12">
+    <h3 class="text-2xl font-bold text-white reveal">Selected projects</h3>
+    <p class="text-slate-300 mt-2 reveal">Real installs and renovations that demonstrate our craftsmanship and integration work.</p>
+
+    <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="gallery-item glass p-4 rounded-xl reveal">
+        <div class="h-40 rounded-lg bg-gradient-to-br from-slate-700 to-slate-800 flex items-end p-4">
+          <div>
+            <h4 class="text-white font-semibold">Modern Family Home</h4>
+            <div class="text-slate-300 text-sm">Full smart retrofit and kitchen automation</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item glass p-4 rounded-xl reveal">
+        <div class="h-40 rounded-lg bg-gradient-to-br from-cyan-700 to-violet-700 flex items-end p-4">
+          <div>
+            <h4 class="text-white font-semibold">Luxury Apartment</h4>
+            <div class="text-slate-300 text-sm">Hidden wiring, mood lighting & centralized control</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item glass p-4 rounded-xl reveal">
+        <div class="h-40 rounded-lg bg-gradient-to-br from-emerald-600 to-green-500 flex items-end p-4">
+          <div>
+            <h4 class="text-white font-semibold">Smart Office Fitout</h4>
+            <div class="text-slate-300 text-sm">Meeting-room automation & secure access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section id="how" class="max-w-5xl mx-auto px-6 py-12">
+    <h3 class="text-2xl font-bold text-white reveal">How we work</h3>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+      <div class="glass p-6 rounded-xl reveal">
+        <h4 class="font-semibold">Plan</h4>
+        <p class="text-slate-300 text-sm mt-2">Site survey, electrical design, and a clear roadmap with milestones and warranties.</p>
+      </div>
+      <div class="glass p-6 rounded-xl reveal">
+        <h4 class="font-semibold">Install</h4>
+        <p class="text-slate-300 text-sm mt-2">Neat wiring, certified equipment, and minimally disruptive installation.</p>
+      </div>
+      <div class="glass p-6 rounded-xl reveal">
+        <h4 class="font-semibold">Support</h4>
+        <p class="text-slate-300 text-sm mt-2">Remote updates, maintenance plans, and rapid-response support packages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS + CTA -->
+  <section class="max-w-7xl mx-auto px-6 py-12">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <div class="reveal">
+        <h3 class="text-2xl font-bold text-white">Trusted by homeowners & businesses</h3>
+        <p class="text-slate-300 mt-2">We combine technical excellence with beautiful finishes so clients truly enjoy the experience of living with technology.</p>
+
+        <div class="mt-6 glass p-6 rounded-xl">
+          <div id="testimonial" class="min-h-[128px]">
+            <p class="text-slate-200 text-lg">“They turned our old house into a smart, quiet, and easy-to-use home. The team was professional and tidy.”</p>
+            <div class="mt-3 text-slate-300 text-sm">— Thabo M., Johannesburg</div>
+          </div>
+
+          <div class="flex items-center mt-4">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
+            <div class="ml-auto">
+              <a class="text-sm text-slate-300 hover:text-white" href="#contact">See how we can help →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <h4 class="text-lg font-semibold text-white">Ready to start?</h4>
+        <p class="text-slate-300 mt-2">Book a site survey and get a tailored plan with transparent pricing.</p>
+
+        <div class="mt-4 glass p-6 rounded-xl">
+          <form id="contact" class="grid gap-3">
+            <input name="name" placeholder="Your name" class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm" />
+            <input name="phone" placeholder="Phone or WhatsApp" class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm" />
+            <input name="email" placeholder="Email" class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm" />
+            <textarea name="notes" placeholder="Brief project notes" class="p-3 rounded-lg bg-transparent border border-slate-600 text-white text-sm"></textarea>
+            <button class="mt-2 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-lg px-4 py-2 font-semibold text-slate-900">Request site survey</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="max-w-7xl mx-auto px-6 py-8 text-slate-300">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <div class="font-semibold text-white">SmartBuild</div>
+        <div class="text-sm mt-1">Design • Build • Automate</div>
+      </div>
+      <div class="text-sm">© <span id="year"></span> SmartBuild. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // reveal on scroll
+    const revealItems = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('visible');
+      });
+    },{threshold:0.12});
+    revealItems.forEach(i=>io.observe(i));
+
+    // simple testimonial rotation
+    const testimonials = [
+      {text: '“They turned our old house into a smart, quiet, and easy-to-use home. The team was professional and tidy.”', author:'— Thabo M., Johannesburg'},
+      {text: '“Excellent design, neat wiring, and the automation scenes are superb. Our energy bills dropped.”', author:'— Lerato K., Sandton'},
+      {text: '“Fast, tidy install. The office meeting room automation increased productivity.”', author:'— Sipho N., Pretoria'},
+    ];
+    let ti = 0;
+    function rotate(){
+      ti = (ti+1) % testimonials.length;
+      const el = document.getElementById('testimonial');
+      el.innerHTML = `<p class=\"text-slate-200 text-lg\">${testimonials[ti].text}</p><div class=\"mt-3 text-slate-300 text-sm\">${testimonials[ti].author}</div>`;
+      // update dots
+      document.querySelectorAll('.carousel-dot').forEach((d,i)=> d.classList.toggle('active', i===ti));
+    }
+    setInterval(rotate, 4200);
+
+    // very small UX: form submit -> local toast (replace with API call)
+    document.querySelectorAll('form').forEach(f=>{
+      f.addEventListener('submit', e=>{
+        e.preventDefault();
+        const btn = e.target.querySelector('button');
+        btn.disabled = true; btn.textContent = 'Sending...';
+        setTimeout(()=>{ btn.disabled=false; btn.textContent='Request site survey'; alert('Thanks — we received your request (demo). Replace this with a real backend POST).') }, 900);
+      })
+    });
+  </script>
+</body>
+</html>
