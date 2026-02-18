@@ -111,7 +111,7 @@ app.post('/quotation', (req, res) => {
 
   try {
     const stmt = db.prepare(sql);
-    stmt.run(values);
+    stmt.run(...values);
 
     // Send Email Notification
     const mailOptions = {

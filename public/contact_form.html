@@ -2,113 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us Brick And (Pty) Ltd</title>
-  <link rel ="stylesheet" href="brick.css" />
-  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
-
-   <style>
-    
-   </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Brick Renovations</title>
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="brick.css" />
 </head>
-<body class="page-spec">
-<div class="container">
-  <div class="navbar">
-    <div >
-      <h1 style="font-size: large;">BRICK RENOVATIONS (PTY) LTD</h1>
+<body>
+  <header class="site-header">
+    <div class="container site-nav">
+      <a href="/index" class="brand">
+        <img src="images/logo.jpg" alt="Brick Renovations logo" />
+        <div>
+          <p class="brand-title">BRICK RENOVATIONS (PTY) LTD</p>
+          <p class="brand-subtitle">Let us discuss your project</p>
+        </div>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      <nav class="menu" id="menu">
+        <a href="/index">Home</a>
+        <a href="/HOME">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact_form" class="active">Contact</a>
+        <a href="/quotation">Quote</a>
+      </nav>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="menu" id="menu">
-      <a href="/index">HOME</a>
-      <a href="/HOME">ABOUT US</a>
-      <a href="/services">SERVICES</a>
-      <a href="/contact_form">CONTACT US</a>
-      <a href="/quotation">QUOTE</a>
-     <!-- <a href="/smarthome">SMART HOME</a>-->
-    </div>
-  </div>
-</div>
-  <header class="contact-header">
-    <h1>Contact Us</h1>
-    <p>We'd love to hear from you. Get in touch with us today!</p>
   </header>
-  <main id="form-container">
- <section id="contact-form">
-      <h2>Send Us a Message</h2>
-      <form id="contactForm">
-        <label for="name">Name:</label><br />
-        <input type="text" id="name" name="name"  placeholder="Delight King" /><br /><br />
 
-        <label for="email">Email:</label><br />
-        <input type="email" id="email" name="email"  placeholder="delight@example.com" required /><br /><br />
+  <section class="hero" style="--hero-image: url('images/back.jpg');">
+    <div class="container">
+      <h1 class="hero-title">Contact Brick Renovations</h1>
+      <p class="hero-text">Tell us about your requirements and we will get back to you with clear next steps.</p>
+    </div>
+  </section>
 
-       <!--<label for="phone">Phone Number:</label><br />
-        <input type="tel" id="phone" name="phone" /><br /><br />-->
+  <main class="section">
+    <div class="container contact-grid">
+      <section class="panel">
+        <h2 class="section-title">Send a Message</h2>
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
 
-        <label for="message"> Message:</label><br />
-        <textarea id="message" name="message" rows="6" required placeholder="Type your message here..."></textarea><br /><br />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
 
-        <button type="submit">Send</button>
-      </form>
-      <div id="response"></div>
-    </section>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+        <p id="response" class="response"></p>
+      </section>
+
+      <section class="panel">
+        <h2 class="section-title">Contact Information</h2>
+        <p><strong>Company:</strong> Brick Renovations</p>
+        <p><strong>Address:</strong> 18 Van Der Merwe, Johannesburg 2001, Gauteng</p>
+        <p><strong>Director:</strong> David Ndhlovu</p>
+        <p><strong>Phone:</strong> +27 61 831 2589</p>
+        <p><strong>Email:</strong> brickand25@gmail.com</p>
+        <p><strong>Working Hours:</strong> Mon - Fri, 7:00 AM - 6:00 PM</p>
+      </section>
+    </div>
   </main>
-    <section id="contact-info">
-      <h2 color="white">Our Contact Information</h2>
-      <p><strong>Company Name:</strong> Brick Renovations</p>
-      <p><strong>Address:</strong> 18 Van Der Merwe, Johannesburg 2001, Gauteng, </p>
-      <p><strong>Director:</strong> David Ndhlovu</p>
-      <p><strong>Phone:</strong> +27 61 831 2589</p>
-      <p><strong>Email:</strong> brickand25@gmail.com</p>
-      <p><strong>Working Hours:</strong> Mon - Fri, 7:00 AM - 6:00 PM</p>
-    </section>
 
-   
-
-   <footer class="main-footer">
+  <footer class="main-footer">
     <div class="container">
       <p>&copy; 2026 Brick Renovations. All Rights Reserved.</p>
-      <p>
-        Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> |
-        Phone: <a href="tel:+27618312589">+27 61 831 2589</a>
-      </p>
-      <p class="tagline">Building Trust. Delivering Quality. Enhancing Communities.</p>
+      <p>Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> | Phone: <a href="tel:+27618312589">+27 61 831 2589</a></p>
+      <p>Building Trust. Delivering Quality. Enhancing Communities.</p>
     </div>
   </footer>
 
   <script>
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-  }
-</script>
-<script>
-document.getElementById('contactForm').addEventListener('submit', async function (e) {
-  e.preventDefault();
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
 
-  const form = e.target;
-  const name = form.name.value;
-  const email = form.email.value;
-  const message = form.message.value;
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => document.getElementById("menu").classList.remove("show"));
+    });
 
-  const res = await fetch('http://localhost:3000/contact', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, email, message })
-  });
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-  const result = await res.json();
+      const form = e.target;
+      const payload = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+      };
 
-  const responseDiv = document.getElementById('response');
-  if (res.ok) {
-    responseDiv.textContent = result.message;
-    form.reset();
-  } else {
-    responseDiv.textContent = result.error || 'Something went wrong.';
-  }
-});
-</script>
+      const responseText = document.getElementById("response");
+      responseText.textContent = "Sending...";
 
+      try {
+        const res = await fetch("/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        responseText.textContent = res.ok ? data.message : (data.error || "Something went wrong.");
+        if (res.ok) form.reset();
+      } catch (error) {
+        responseText.textContent = "Unable to submit right now. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>

@@ -2,189 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="keywords" content="construction, renovation, Gauteng,painting, tiling, kitchen, near me">
-  <title>Brick And (PTY) LTD</title>
-  <link rel="stylesheet" href="brick.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="construction, renovation, Gauteng, painting, tiling, kitchen" />
+  <title>Brick Renovations (PTY) LTD</title>
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="brick.css" />
 </head>
 <body>
-  <div class="container">
-  <div class="navbar">
-    <div >
-      
-      <h1 style="font-size: large;">BRICK RENOVATIONS (PTY) LTD</h1>
+  <header class="site-header">
+    <div class="container site-nav">
+      <a href="/index" class="brand">
+        <img src="images/logo.jpg" alt="Brick Renovations logo" />
+        <div>
+          <p class="brand-title">BRICK RENOVATIONS (PTY) LTD</p>
+          <p class="brand-subtitle">Residential and Commercial Specialists</p>
+        </div>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      <nav class="menu" id="menu">
+        <a href="/index" class="active">Home</a>
+        <a href="/HOME">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact_form">Contact</a>
+        <a href="/quotation">Quote</a>
+      </nav>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="menu" id="menu">
-
-      <a href="/index">HOME</a>
-      <a href="/HOME">ABOUT US</a>
-      <a href="/services">SERVICES</a>
-      <a href="/contact_form">CONTACT US</a>
-      <a href="/quotation">QUOTE</a>
-     <!-- <a href="/smarthome">SMART HOME</a>-->
-    </div>
-  </div>
-</div>
-
-  </div>
-
- <header class="hero">
-   <a><div class="division"><a href="services.html#services-container">INTERIOR RENOVATIONS</a></div></a>
-    <div class="overlay">
-      <h1>Brick Renovations</h1>
-      <p>Your space upgraded with precision </p>
-      <p>Upgrade, Renovate  and Modernise.</p>
-      <a href="quotation.html" class="cta-button">Get a Quote</a>
-    </div>
-    <div class="difference">
-     
-      <div class="division"><a href="services.html#exterior">EXTERIOR RENOVATIONS</a></div>
-    </div>
-    
-   
   </header>
-   
-  <section id="services" class="services">
-    <h2>Our Expertise</h2>
-    <div class="service-grid">
-      <div class="service-card">
-        <!--<img src="https://img.icons8.com/ios-filled/100/construction.png" alt="Residential" />-->
-        <h3>Residential Projects</h3>
-        <p>From the patio to the bathroom, we renovate homes with care and precision.</p>
-      </div>
-      <div class="service-card">
-        <!--<img src="https://img.icons8.com/ios-filled/100/steel-frame.png" alt="Commercial" />-->
-        <h3>Commercial Builds</h3>
-        <p>Durable, scalable, and efficient solutions for business spaces.</p>
-      </div>
-      <div class="service-card">
-       
-        <h3>Renovations & Upgrades</h3>
-        <p>Modernize your space with expert craftsmanship and design.</p>
-      </div>
-    </div>
-    <!-- Chat Widget Container -->
-<div id="chat-container" style="position: fixed; bottom: 0px; right: 20px; z-index: 1000; font-family: Arial, sans-serif;">
-    <!-- Chat Toggle Button -->
-    <button id="chat-toggle" style="background: #f39c12; border: none; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-        <span style="color: white; font-size: 24px;">💬</span>
-    </button>
 
-    <!-- Chat Window (Initially Hidden) -->
-    <div id="chat-window" style="display: none; width: 300px; height: 400px; background: white; border: 1px solid #ddd; border-radius: 10px; flex-direction: column; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-bottom: 10px;">
-        <div style="background: #2c3e50; color: white; padding: 15px; font-weight: bold;">Construction Assistant</div>
-        <div id="chat-messages" style="flex: 1; padding: 10px; overflow-y: auto; background: #f9f9f9; display: flex; flex-direction: column; gap: 8px;">
-            <div style="background: #e1e1e1; padding: 8px; border-radius: 8px; align-self: flex-start; max-width: 80%;">Hello! How can we help with your project today?</div>
+  <section class="hero fade-up" style="--hero-image: url('images/hero-construction.jpg');">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title">Upgrade, Renovate, and Modernize with Confidence.</h1>
+        <p class="hero-text">
+          We refurbish kitchens, bathrooms, outdoor spaces, and full properties with clean project
+          structure, quality finishes, and dependable delivery.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/quotation">Get a Quote</a>
+          <a class="btn btn-secondary" href="/services">View Projects</a>
         </div>
-        <div style="border-top: 1px solid #eee; padding: 10px; display: flex;">
-            <input type="text" id="chat-input" placeholder="Type here..." style="flex: 1; border: 1px solid #ddd; border-radius: 5px; padding: 8px;">
-            <button id="chat-send" style="margin-left: 5px; background: #f39c12; border: none; color: white; border-radius: 5px; padding: 0 15px; cursor: pointer;">Send</button>
-        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>What you get</h3>
+        <p>Clear timelines, professional workmanship, and one team from planning through final handover.</p>
+      </aside>
     </div>
-</div>
-
   </section>
-   <footer class="main-footer">
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Core Expertise</h2>
+          <p class="section-copy">Focused services built to improve both function and appearance of your space.</p>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Residential Renovations</h3>
+            <p>Interior and exterior upgrades tailored to your home layout and lifestyle.</p>
+          </article>
+          <article class="card">
+            <h3>Commercial Fit-Outs</h3>
+            <p>Durable and practical building solutions designed around business operations.</p>
+          </article>
+          <article class="card">
+            <h3>Refurbishment Projects</h3>
+            <p>End-to-end refurbishment from structural fixes to final finishes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Featured Work</h2>
+        </div>
+        <div class="media-grid">
+          <article class="media-tile">
+            <div class="media-frame"><img src="images/kitchen1.jpg" alt="Modern kitchen renovation" loading="lazy" /></div>
+            <div class="media-body"><h3>Kitchen Remodeling</h3><p>Modern layouts with premium finishes.</p></div>
+          </article>
+          <article class="media-tile">
+            <div class="media-frame"><img src="images/bath2.jpg" alt="Bathroom renovation project" loading="lazy" /></div>
+            <div class="media-body"><h3>Bathroom Upgrades</h3><p>Clean tiling and practical fixtures.</p></div>
+          </article>
+          <article class="media-tile">
+            <div class="media-frame"><img src="images/paint1.jpg" alt="Exterior renovation project" loading="lazy" /></div>
+            <div class="media-body"><h3>Exterior Finishes</h3><p>Weather-ready walls and paintwork.</p></div>
+          </article>
+          <article class="media-tile">
+            <div class="media-frame"><img src="images/driveway.jpeg" alt="Paving project" loading="lazy" /></div>
+            <div class="media-body"><h3>Outside Paving</h3><p>Safe and durable driveway paving.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Why Clients Choose Us</h2>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><strong>On-Time</strong><span>Project delivery focus</span></div>
+          <div class="stat"><strong>Detail</strong><span>High-quality finishing</span></div>
+          <div class="stat"><strong>Reliable</strong><span>Clear communication</span></div>
+          <div class="stat"><strong>Local</strong><span>Based in Johannesburg</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
     <div class="container">
       <p>&copy; 2026 Brick Renovations. All Rights Reserved.</p>
-      <p>
-        Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> |
-        Phone: <a href="tel:+27618312589">+27 61 831 2589</a>
-      </p>
-      <p class="tagline">Building Trust. Delivering Quality. Enhancing Communities.</p>
+      <p>Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> | Phone: <a href="tel:+27618312589">+27 61 831 2589</a></p>
+      <p>Building Trust. Delivering Quality. Enhancing Communities.</p>
     </div>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("chat-toggle");
-    const windowEl = document.getElementById("chat-window");
-    const sendBtn = document.getElementById("chat-send");
-    const inputEl = document.getElementById("chat-input");
-    const messagesEl = document.getElementById("chat-messages");
-
-    // Toggle Visibility
-    toggleBtn.addEventListener("click", () => {
-        windowEl.style.display = windowEl.style.display === "none" ? "flex" : "none";
-    });
-
-    const addMessage = (text, sender) => {
-        const msg = document.createElement("div");
-        msg.innerText = text;
-        msg.style.padding = "8px";
-        msg.style.borderRadius = "8px";
-        msg.style.maxWidth = "80%";
-        msg.style.alignSelf = sender === "user" ? "flex-end" : "flex-start";
-        msg.style.background = sender === "user" ? "#f39c12" : "#e1e1e1";
-        msg.style.color = sender === "user" ? "white" : "black";
-        messagesEl.appendChild(msg);
-        messagesEl.scrollTop = messagesEl.scrollHeight;
-    };
-
-    const handleBotResponse = (userInput) => {
-        const input = userInput.toLowerCase();
-        let response = "I'm not sure, but our team can help! Call us at +27618312589.";
-        
-        // Construction-specific keywords
-        if (input.includes("quote") || input.includes("price")) {
-            response = "We provide free estimates! Please proceed to Quote and fill in the fields.";
-        } else if (input.includes("service") || input.includes("do you do")) {
-            response = "We specialize in residential remodeling, roofing, and commercial builds.";
-        } else if (input.includes("hours")) {
-            response = "Our site hours are Mon-Fri, 7 AM to 5 PM.";
-      }else if(input.includes("location") || input.includes("located")){
-            response =" We operate within a 50km radius of Johannesburg South"
-          }
-
-        setTimeout(() => addMessage(response, "bot"), 500);
-    };
-
-    sendBtn.addEventListener("click", () => {
-        const text = inputEl.value.trim();
-        if (text) {
-            addMessage(text, "user");
-            inputEl.value = "";
-            handleBotResponse(text);
-        }
-    });
-
-    // Send on Enter key
-    inputEl.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") sendBtn.click();
-    });
-});
-
-  function toggleMenu() {
-    document.getElementById('menu').classList.toggle('show');
-  }
-</script>
-
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/27618312589?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" 
-     class="whatsapp-float" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     title="Chat with us on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    if(navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(
-        (position)=> {
-          const lat = position.coords.latitude;
-          const lon = position.coords.longitude;
-          console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-        },
-      )
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
     }
+
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => document.getElementById("menu").classList.remove("show"));
+    });
   </script>
 </body>
 </html>

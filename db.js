@@ -29,4 +29,19 @@ db.exec(`
   )
 `);
 
+function ensureColumn(table, column, type) {
+  const info = db.prepare(`PRAGMA table_info(${table})`).all();
+  const exists = info.some((col) => col.name === column);
+  if (!exists) {
+    db.exec(`ALTER TABLE ${table} ADD COLUMN ${column} ${type}`);
+  }
+}
+
+ensureColumn('quotes', 'site_status', 'TEXT');
+ensureColumn('quotes', 'project_size', 'TEXT');
+ensureColumn('quotes', 'urgency', 'TEXT');
+ensureColumn('quotes', 'hire_status', 'TEXT');
+ensureColumn('quotes', 'timeline', 'TEXT');
+ensureColumn('quotes', 'description', 'TEXT');
+
 module.exports = db;

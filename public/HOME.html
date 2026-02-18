@@ -2,308 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brick And (PTY) LTD</title>
-  <link rel="icon" href="images/brick.jpg" type="image/x-icon">
-  <link rel="stylesheet" href="brick.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <style>
-     body {
-        position: relative; /* Essential for positioning the pseudo-element */
-        min-height: 100vh; /* Ensures the body takes up at least the full viewport height */
-    }
-
-    body::before {
-        content: ''; /* Required for pseudo-elements */
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('images/back.jpg'); /* Replace with your image path */
-        background-size: cover; /* Adjust as needed: cover, contain, 100% 100%, etc. */
-        background-repeat: no-repeat;
-        opacity: 0.6; /* Sets the opacity of the background image */
-        z-index: -1; /* Places the pseudo-element behind the body's content */
-    }
-   /* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #333;
-  padding: 0px 0px;
-  color: white;
-  position :fixed;
-  top:0;
-  width:100%;
-  z-index: 1000;
-  right:10;
-}*/
-   /* .brand {
-      font-size: 1.7rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 2px;
-      background: url('images/brick.jpg') no-repeat left center/40px;
-      padding-left: 50px;
-      min-height: 40px;
-      display: flex;
-      align-items: center;
-    }
-    .menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-    .menu a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    .menu a:hover {
-      background: #636e72;
-      color: #ffe082;
-    }
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-    }
-    @media (max-width: 800px) {
-      .menu {
-        display: none;
-        flex-direction: column;
-        background: #2d3436;
-        position: absolute;
-        top: 70px;
-        right: 2rem;
-        min-width: 180px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        border-radius: 8px;
-        z-index: 100;
-      }
-      .menu.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-      }
-    }*/
-    .hero {
-      background: linear-gradient(rgba(44,62,80,0.7), rgba(44,62,80,0.7)), url('images/hero-construction.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 5rem 2rem 3rem 2rem;
-      text-align: center;
-      border-radius: 0 0 40px 40px;
-      box-shadow: 0 8px 32px rgba(44,62,80,0.15);
-      margin-bottom: 2rem;
-      animation: fadeIn 1.2s;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: 2px;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 0.95;
-    }
-    main.contain {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem;
-      background: #c5bfbf;
-      border-radius: 24px;
-      box-shadow: 0 4px 24px rgba(44,62,80,0.08);
-      margin-top: -60px;
-      position: relative;
-      z-index: 2;
-  
-      animation: fadeInUp 1.2s;
-    }
-    section {
-      margin-bottom: 2.5rem;
-      animation: fadeInUp 1.2s;
-    }
-    h2 {
-      color: #2d3436;
-      margin-bottom: 0.7rem;
-      font-size: 2rem;
-      border-left: 5px solid #ffe082;
-      padding-left: 0.7rem;
-    }
-    .values {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-    .smart-feature {
-      flex: 1 1 180px;
-      background: #f9fafb;
-      border-radius: 12px;
-      padding: 1.2rem;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.05);
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .smart-feature:hover {
-      transform: translateY(-6px) scale(1.04);
-      box-shadow: 0 8px 24px rgba(44,62,80,0.12);
-      background: #ffe08222;
-    }
-    ul {
-      padding-left: 1.5rem;
-      margin-top: 0.5rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    #smart-home {
-      background: linear-gradient(90deg, #ffe08222 0%, #b2bec3 100%);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 8px rgba(44,62,80,0.06);
-    }
-    #smart-home h2 {
-      color: #636e72;
-    }
-    #smart-home p {
-      font-size: 1.1rem;
-      color: #444;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Brick Renovations</title>
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="brick.css" />
 </head>
 <body>
-  <!-- Navigation -->
-  <div class="container">
-  <div class="navbar">
-    <div >
-      <h1 style="font-size: large;">BRICK RENOVATIONS (PTY) LTD</h1>
+  <header class="site-header">
+    <div class="container site-nav">
+      <a href="/index" class="brand">
+        <img src="images/logo.jpg" alt="Brick Renovations logo" />
+        <div>
+          <p class="brand-title">BRICK RENOVATIONS (PTY) LTD</p>
+          <p class="brand-subtitle">Built on Craft and Accountability</p>
+        </div>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      <nav class="menu" id="menu">
+        <a href="/index">Home</a>
+        <a href="/HOME" class="active">About</a>
+        <a href="/services">Services</a>
+        <a href="/contact_form">Contact</a>
+        <a href="/quotation">Quote</a>
+      </nav>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <div class="menu" id="menu">
-      <a href="/index">HOME</a>
-      <a href="/HOME">ABOUT US</a>
-      <a href="/services">SERVICES</a>
-      <a href="/contact_form">CONTACT US</a>
-      <a href="/quotation">QUOTE</a>
-     <!-- <a href="/smarthome">SMART HOME</a>-->
+  </header>
+
+  <section class="hero" style="--hero-image: url('images/back.jpg');">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title">Building Better Spaces, Brick by Brick.</h1>
+        <p class="hero-text">
+          We are a renovation and construction team that prioritizes practical planning, clean workmanship,
+          and dependable results for homes and businesses.
+        </p>
+      </div>
+      <aside class="hero-card">
+        <h3>Our commitment</h3>
+        <p>Every project is handled with transparency, safety standards, and measurable quality control.</p>
+      </aside>
     </div>
-  </div>
-</div>
+  </section>
 
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>Building Your Vision, Brick by Brick</h1>
-    <p>
-      Welcome to Brick Renovations – your trusted partner in renovations, innovation, and smart building solutions. We turn your dreams into reality with quality, integrity, and expertise.
-    </p>
-  </div>
-
-  <main class="contain">
-    <!-- About Section -->
-    <section>
-      <h2>About Us</h2>
-      <p>
-        Brick Renovations is a leading renovations company committed to delivering top-quality building solutions across residential, commercial, and industrial sectors. 
-        With  <strong> years</strong> of experience, we pride ourselves on our craftsmanship, integrity, and attention to detail.
-      </p>
-    </section>
-
-    <!-- Mission Section -->
-    <section>
-      <h2>Our Mission</h2>
-      <p>
-        To transform your space into a  safe, sustainable, and innovative space that stands the test of time. We aim to exceed client expectations through efficient project management and superior construction standards.
-      </p>
-    </section>
-
-    <!-- Values -->
-    <section>
-      <h2>Our Values</h2>
-      <div class="values smart-features">
-        <div class="smart-feature">
-          <h3>Quality</h3>
-          <p>We ensure excellence in every project, no matter the size.</p>
-        </div>
-        <div class="smart-feature">
-          <h3>Integrity</h3>
-          <p>Honesty and transparency are the foundation of our business.</p>
-        </div>
-        <div class="smart-feature">
-          <h3>Innovation</h3>
-          <p>We embrace new technologies and creative solutions.</p>
-        </div>
-        <div class="smart-feature">
-          <h3>Safety</h3>
-          <p>We prioritize safety at every stage of construction.</p>
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card-grid">
+          <article class="card">
+            <h3>Mission</h3>
+            <p>Transform properties into modern, durable, and efficient spaces through disciplined execution.</p>
+          </article>
+          <article class="card">
+            <h3>Vision</h3>
+            <p>Be the trusted local name for high-standard renovations and long-term client satisfaction.</p>
+          </article>
+          <article class="card">
+            <h3>Approach</h3>
+            <p>We scope thoroughly, communicate clearly, and deliver with consistent quality from start to finish.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section>
-      <h2>Why Choose Us?</h2>
-      <ul>
-        <li>Experienced and licensed professionals</li>
-        <li>Reliable project timelines and budgets</li>
-        <li>Customer-focused service</li>
-        <li>Strong portfolio of successful projects</li>
-      </ul>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Values That Guide Every Project</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card"><h4>Quality</h4><p>Materials and finishes chosen for long-term performance.</p></article>
+          <article class="card"><h4>Integrity</h4><p>Honest timelines, transparent costs, and dependable updates.</p></article>
+          <article class="card"><h4>Safety</h4><p>Site safety and compliance integrated into every stage of execution.</p></article>
+        </div>
+      </div>
     </section>
 
-    <!-- Smart Home Solutions Section -->
-    <section id="smart-home">
-      <h2>Smart Home & Smart Building Solutions</h2>
-      <p>
-        We offer cutting-edge smart home and building automation solutions, integrating security, energy management, and convenience. Our team designs and installs systems that make your spaces safer, more efficient, and future-ready.
-      </p>
-      <ul>
-        <li>Automated lighting, climate, and security controls</li>
-        <li>Energy-efficient building management</li>
-        <li>Remote monitoring and smart device integration</li>
-        <li>Custom solutions for homes and businesses</li>
-      </ul>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Why Work With Us</h2>
+        </div>
+        <div class="panel">
+          <ul>
+            <li>Experienced team for interior and exterior refurbishments.</li>
+            <li>Clear project milestones and realistic budgeting support.</li>
+            <li>Strong focus on aesthetics, functionality, and durability.</li>
+            <li>Post-project support and maintenance guidance.</li>
+          </ul>
+        </div>
+      </div>
     </section>
   </main>
 
- <footer class="main-footer">
+  <footer class="main-footer">
     <div class="container">
-      <p>&copy; 2025 Brick Renovations. All Rights Reserved.</p>
-      <p>
-        Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> |
-        Phone: <a href="tel:+27618312589">+27 61 831 2589</a>
-      </p>
-      <p class="tagline">Building Trust. Delivering Quality. Enhancing Communities.</p>
+      <p>&copy; 2026 Brick Renovations. All Rights Reserved.</p>
+      <p>Email: <a href="mailto:brickand25@gmail.com">brickand25@gmail.com</a> | Phone: <a href="tel:+27618312589">+27 61 831 2589</a></p>
+      <p>Building Trust. Delivering Quality. Enhancing Communities.</p>
     </div>
   </footer>
 
   <script>
     function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
+      document.getElementById("menu").classList.toggle("show");
     }
-    // Optional: Close menu on link click (mobile)
-    document.querySelectorAll('.menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('menu').classList.remove('show');
-      });
+
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => document.getElementById("menu").classList.remove("show"));
     });
   </script>
 </body>
