@@ -447,6 +447,72 @@ a {
   backdrop-filter: blur(4px);
 }
 
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.portfolio-card {
+  margin: 0;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.portfolio-btn {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.portfolio-btn img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.portfolio-card:hover .portfolio-btn img {
+  transform: scale(1.05);
+}
+
+.portfolio-body {
+  padding: 0.95rem 1rem 1.05rem;
+}
+
+.portfolio-body h3 {
+  margin: 0.45rem 0 0;
+  font-family: "Sora", sans-serif;
+  font-size: 1rem;
+}
+
+.portfolio-body p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.portfolio-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--brand-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -613,6 +679,10 @@ textarea {
     grid-row: span 2;
   }
 
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .site-nav {
     min-height: 70px;
   }
@@ -680,6 +750,10 @@ textarea {
   .project-tile.tall {
     grid-column: span 1;
     grid-row: span 1;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
   }
 
   .hero {

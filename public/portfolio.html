@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A structured portfolio of Brick Renovations' kitchens, bathrooms, exterior work, paving, and recent site progress." />
+  <title>Portfolio | Brick Renovations</title>
+  <link rel="icon" href="images/brick.jpg" type="image/x-icon" />
+  <link rel="stylesheet" href="brick.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-nav">
+      <a href="/index" class="brand">
+        <img src="images/logo.jpg" alt="Brick Renovations logo" />
+        <div>
+          <p class="brand-title">BRICK RENOVATIONS (PTY) LTD</p>
+          <p class="brand-subtitle">Recent work and completed projects</p>
+        </div>
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      <nav class="menu" id="menu">
+        <a href="/index">Home</a>
+        <a href="/HOME">About</a>
+        <a href="/services">Services</a>
+        <a href="/portfolio" class="active">Portfolio</a>
+        <a href="/contact_form">Contact</a>
+        <a href="/quotation">Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero fade-up" style="--hero-image: url('images/project.jpg');">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="hero-title">Projects done on clarity, not clutter.</h1>
+        <p class="hero-text">
+          View our past and current projects.A Brick Renocations we strive for excellence because your project matters
+          to us. Our portfolio is organized to show the quality and range of our work,
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/quotation">Request a Quote</a>
+          <a class="btn btn-secondary" href="/contact_form">Talk to Us</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <h3>Project View</h3>
+        <p>Browse the work by interiors, bathrooms, exterior finishes, and live site progress.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Portfolio at a Glance</h2>
+          <p class="section-copy">A quick snapshot of the project types featured below.</p>
+        </div>
+        <div class="stat-grid">
+          <div class="stat"><strong>Interiors</strong><span>Kitchens and cabinet work</span></div>
+          <div class="stat"><strong>Bathrooms</strong><span>Tiling and wet areas</span></div>
+          <div class="stat"><strong>Exterior</strong><span>Paint and facade finishes</span></div>
+          <div class="stat"><strong>Progress</strong><span>Live site updates</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Kitchen & Interior Work</h2>
+          <p class="section-copy">Kitchen upgrades and interior details arranged in a clean, easy-to-scan grid.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/kitchen1.jpg">
+              <img src="images/kitchen1.jpg" alt="Kitchen renovation with clean cabinetry" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Kitchen</span>
+              <h3>Kitchen Renovation</h3>
+              <p>Modern layout with practical working surfaces.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/kitchen2.jpg">
+              <img src="images/kitchen2.jpg" alt="Kitchen installation with fitted finishes" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Kitchen</span>
+              <h3>Fitted Kitchen</h3>
+              <p>Balanced storage and a tidy visual finish.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/customkitchen.png">
+              <img src="images/customkitchen.png" alt="Custom kitchen design" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Interior</span>
+              <h3>Custom Kitchen</h3>
+              <p>Tailored cabinetry and a more personal layout.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/kitchenq0.jpg">
+              <img src="images/kitchenq0.jpg" alt="Kitchen space ready for finishes" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Interior</span>
+              <h3>Kitchen Finish-Out</h3>
+              <p>Prepared for final detailing and handover.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Bathroom & Tiling</h2>
+          <p class="section-copy">Wet-area work, wall finishes, and tiling shown together for a clearer flow.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/bath1.jpg">
+              <img src="images/bath1.jpg" alt="Bathroom renovation with tiled surfaces" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Bathroom</span>
+              <h3>Bathroom Renovation</h3>
+              <p>Practical detailing for a clean and durable finish.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/bath2.jpg">
+              <img src="images/bath2.jpg" alt="Bathroom upgrade with modern tile work" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Bathroom</span>
+              <h3>Bathroom Upgrade</h3>
+              <p>Neat tile lines and refreshed interior surfaces.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/bath3.jpg">
+              <img src="images/bath3.jpg" alt="Bathroom tiling and finishing stage" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Tiling</span>
+              <h3>Tiling Stage</h3>
+              <p>Detailed surface work before final fittings.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/bath4.jpg">
+              <img src="images/bath4.jpg" alt="Bathroom shower and finishing installation" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Bathroom</span>
+              <h3>Shower Finish</h3>
+              <p>Finishing details that bring the room together.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Exterior & Access</h2>
+          <p class="section-copy">Paint work, frontage upgrades, and driveway surfaces grouped in one place.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/paint1.jpg">
+              <img src="images/paint1.jpg" alt="Exterior painting and wall finishing" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Exterior</span>
+              <h3>Exterior Painting</h3>
+              <p>Fresh surfaces with a clean weather-ready finish.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/paint2.jpg">
+              <img src="images/paint2.jpg" alt="Painted exterior wall and clean finish" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Exterior</span>
+              <h3>Wall Finishes</h3>
+              <p>Polished exterior surfaces with crisp edges.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/driveway.jpeg">
+              <img src="images/driveway.jpeg" alt="Driveway paving and access work" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Paving</span>
+              <h3>Driveway Paving</h3>
+              <p>Hard-wearing access space with a tidy layout.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/driveway1.jpeg">
+              <img src="images/driveway1.jpeg" alt="Driveway paving detail from another angle" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Paving</span>
+              <h3>Paving Detail</h3>
+              <p>A second view of the access and finish work.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Live Site Progress</h2>
+          <p class="section-copy">Recent updates captured on site as the project moved toward completion.</p>
+        </div>
+        <div class="portfolio-grid">
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/WhatsApp Image 2026-04-12 at 11.47.12.jpeg">
+              <img src="images/WhatsApp Image 2026-04-12 at 11.47.12.jpeg" alt="Site progress image captured on April 12, 2026" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Progress</span>
+              <h3>Progress Shot One</h3>
+              <p>On-site work captured during the paving.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/WhatsApp Image 2026-04-12 at 11.47.16.jpeg">
+              <img src="images/WhatsApp Image 2026-04-12 at 11.47.16.jpeg" alt="Site progress image showing active renovation work" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Progress</span>
+              <h3>Progress Shot Two</h3>
+              <p>Work-in-motion from the same project window.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/WhatsApp Image 2026-04-12 at 11.47.20.jpeg">
+              <img src="images/WhatsApp Image 2026-04-12 at 11.47.20.jpeg" alt="Site progress image of exterior and paving work" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Progress</span>
+              <h3>Progress Shot Three</h3>
+              <p>Interior work and site detail in context.</p>
+            </figcaption>
+          </figure>
+          <figure class="portfolio-card">
+            <button class="portfolio-btn" type="button" data-full="images/WhatsApp Image 2026-04-12 at 11.48.34.jpeg">
+              <img src="images/WhatsApp Image 2026-04-12 at 11.48.34.jpeg" alt="Final progress image from the April site update" loading="lazy" />
+            </button>
+            <figcaption class="portfolio-body">
+              <span class="portfolio-tag">Progress</span>
+              <h3>Progress Shot Four</h3>
+              <p>Late-stage site update and finishing work.</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2026 Brick Renovations. All Rights Reserved.</p>
+      <p>Email: <a href="mailto:info@brickand.co.za">info@brickand.co.za</a> | Phone: <a href="tel:+27618312589">+27 61 831 2589</a></p>
+      <p>Building Trust. Delivering Quality. Enhancing Communities.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous">&#8249;</button>
+    <img src="" alt="" />
+    <button class="lightbox-nav next" type="button" aria-label="Next">&#8250;</button>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => document.getElementById("menu").classList.remove("show"));
+    });
+
+    const portfolioButtons = Array.from(document.querySelectorAll(".portfolio-btn"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+    const closeBtn = lightbox.querySelector(".lightbox-close");
+    const prevBtn = lightbox.querySelector(".lightbox-nav.prev");
+    const nextBtn = lightbox.querySelector(".lightbox-nav.next");
+    let activeIndex = 0;
+
+    function openLightbox(index) {
+      activeIndex = index;
+      const btn = portfolioButtons[activeIndex];
+      lightboxImg.src = btn.dataset.full;
+      lightboxImg.alt = btn.querySelector("img")?.alt || "Portfolio image";
+      lightbox.classList.add("active");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+    }
+
+    function showNext(step) {
+      if (!portfolioButtons.length) return;
+      activeIndex = (activeIndex + step + portfolioButtons.length) % portfolioButtons.length;
+      openLightbox(activeIndex);
+    }
+
+    portfolioButtons.forEach((btn, index) => {
+      btn.addEventListener("click", () => openLightbox(index));
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    prevBtn.addEventListener("click", () => showNext(-1));
+    nextBtn.addEventListener("click", () => showNext(1));
+
+    document.addEventListener("keydown", (event) => {
+      if (!lightbox.classList.contains("active")) return;
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showNext(-1);
+      if (event.key === "ArrowRight") showNext(1);
+    });
+  </script>
+</body>
+</html>
