@@ -1,5 +1,10 @@
 const Database = require('better-sqlite3');
-const db = new Database('./codebrick.db');
+const path = require('path');
+
+// Always resolve the DB path relative to this file so we don't create
+// a different database when the server is started from another folder.
+const dbPath = path.join(__dirname, 'codebrick.db');
+const db = new Database(dbPath);
 
 db.exec(`
   CREATE TABLE IF NOT EXISTS contacts (

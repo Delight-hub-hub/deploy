@@ -8,7 +8,7 @@ const cors = require('cors');
 const session = require('express-session');
 const path = require('path');
 const db = require('./db'); // SQLite connection
-const transporter = require('./emailConfig'); // Email transporter
+const { transporter, mailUser } = require('./emailConfig'); // Email transporter
 
 // ===== App Setup =====
 const app = express();
@@ -111,11 +111,12 @@ app.post('/quotation', (req, res) => {
 
   try {
     const stmt = db.prepare(sql);
-    stmt.run(...values);
+    const info = stmt.run(...values);
 
     // Send Email Notification
     const mailOptions = {
-      from: 'brickand25@gmail.com',
+      from: mailUser,
+      replyTo: email,
       to: 'delightking03@gmail.com',
       subject: '🧱 New Quote Request Received - Code Brick',
       html: `
@@ -155,7 +156,7 @@ app.post('/quotation', (req, res) => {
       else console.log('Email sent: ' + info.response);
     });
 
-    res.json({ success: true, message: 'Quote request submitted successfully!' });
+    res.json({ success: true, message: 'Quote request submitted successfully!', id: info.lastInsertRowid });
 
   } catch (err) {
     console.error('Database Error:', err.message);
@@ -166,7 +167,7 @@ app.post('/quotation', (req, res) => {
 
 // ---- Admin Panel (protected) ----
 app.get('/admin', requireLogin, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+  res.sendFile(path.join(__dirname, 'public', 'admin_panel.html'));
 });
 
 app.get('/admin/data', requireLogin, (req, res) => {
